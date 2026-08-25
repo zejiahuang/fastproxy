@@ -6,11 +6,13 @@ on:
     tags: ['v*']
   pull_request:
     branches: [master]
+  workflow_dispatch:
 
 env:
   DOTNET_NOLOGO: 'true'
   DOTNET_CLI_TELEMETRY_OPTOUT: 'true'
-  Configuration: Release
+  ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
+  ANDROID_HOME: /usr/local/lib/android/sdk
 
 jobs:
   build:
@@ -33,17 +35,19 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
-        with:
-          packages: |
-            platforms;android-36
-            build-tools;36.0.0
+      - name: Install Android SDK components
+        run: |
+          yes | $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager \
+            "platforms;android-36" \
+            "build-tools;36.0.0" \
+            "platform-tools" || true
 
       - name: Restore NuGet packages
+        working-directory: SteamTools-Android
         run: dotnet restore src/ST.Client.Android.App.Modern/ST.Client.Android.App.Modern.csproj
 
       - name: Build APK (SHADOWSOCKS default)
+        working-directory: SteamTools-Android
         run: |
           dotnet build src/ST.Client.Android.App.Modern/ST.Client.Android.App.Modern.csproj \
             -c Release \
@@ -55,8 +59,8 @@ jobs:
         with:
           name: steampptools-apk
           path: |
-            src/ST.Client.Android.App.Modern/bin/Release/net10.0-android/*-Signed.apk
-            src/ST.Client.Android.App.Modern/bin/Release/net10.0-android/*-Signed.aab
+            SteamTools-Android/src/ST.Client.Android.App.Modern/bin/Release/net10.0-android/*-Signed.apk
+            SteamTools-Android/src/ST.Client.Android.App.Modern/bin/Release/net10.0-android/*-Signed.aab
           if-no-files-found: error
           retention-days: 30
 
