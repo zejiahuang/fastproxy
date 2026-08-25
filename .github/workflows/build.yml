@@ -42,6 +42,9 @@ jobs:
             "build-tools;36.0.0" \
             "platform-tools" || true
 
+      - name: Install .NET Android workload
+        run: dotnet workload install android --source https://api.nuget.org/v3/index.json
+
       - name: Restore NuGet packages
         working-directory: SteamTools-Android
         run: dotnet restore src/ST.Client.Android.App.Modern/ST.Client.Android.App.Modern.csproj
