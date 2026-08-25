@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- MD3 Seed Colors (Steam blue-green palette) -->
+  <color name="md3_seed">#FF1B6B4A</color>
+
+  <!-- MD3 Light Color Roles -->
+  <color name="md3_primary">#FF1B6B4A</color>
+  <color name="md3_on_primary">#FFFFFFFF</color>
+  <color name="md3_primary_container">#FF9DF6BF</color>
+  <color name="md3_on_primary_container">#FF002110</color>
+
+  <color name="md3_secondary">#FF4D6355</color>
+  <color name="md3_on_secondary">#FFFFFFFF</color>
+  <color name="md3_secondary_container">#FFD0E8D6</color>
+  <color name="md3_on_secondary_container">#FF0B1F15</color>
+
+  <color name="md3_tertiary">#FF3D6473</color>
+  <color name="md3_on_tertiary">#FFFFFFFF</color>
+  <color name="md3_tertiary_container">#FFC1E8FA</color>
+  <color name="md3_on_tertiary_container">#FF001F29</color>
+
+  <color name="md3_error">#FFBA1A1A</color>
+  <color name="md3_on_error">#FFFFFFFF</color>
+  <color name="md3_error_container">#FFFFDAD6</color>
+  <color name="md3_on_error_container">#FF410002</color>
+
+  <color name="md3_background">#FFFBFDF8</color>
+  <color name="md3_on_background">#FF191C1A</color>
+  <color name="md3_surface">#FFFBFDF8</color>
+  <color name="md3_on_surface">#FF191C1A</color>
+  <color name="md3_surface_variant">#FFDCE5DC</color>
+  <color name="md3_on_surface_variant">#FF414942</color>
+
+  <color name="md3_outline">#FF717971</color>
+  <color name="md3_outline_variant">#FFC0C9C0</color>
+
+  <color name="md3_inverse_surface">#FF2E312E</color>
+  <color name="md3_inverse_on_surface">#FFF0F1EC</color>
+  <color name="md3_inverse_primary">#FF82D9A4</color>
+
+  <!-- Legacy colors (kept for compatibility) -->
+  <color name="blue_200">#FF90caf9</color>
+  <color name="blue_500">#FF2196f3</color>
+  <color name="blue_700">#FF1976d2</color>
+  <color name="green_200">#FFa5d6a7</color>
+  <color name="green_700">#FF388e3c</color>
+  <color name="black">#FF000000</color>
+  <color name="white">#FFFFFFFF</color>
+  <color name="splash_background">#fcfcfc</color>
+  <color name="border_color">#C0C0C0</color>
+  <color name="grey_background">#F9F9F9</color>
+  <color name="grey_window_background">#F9F9F9</color>
+  <color name="text_primary">#FF1C1B1F</color>
+  <color name="text_secondary">#FF49454F</color>
+  <color name="text_link">#FF1B6B4A</color>
+  <color name="status_bar_color">#FFFFFFFF</color>
+  <color name="icon_background">@color/md3_on_surface_variant</color>
+  <color name="fab_icon_background_min">#747474</color>
+  <color name="bg_divider">#1F000000</color>
+  <color name="grey">#C4C4C6</color>
+  <color name="shell_title_color">@color/md3_on_surface</color>
+  <color name="red_warn">#ff4d4f</color>
+  <color name="md3_surface_container">#FFEEF4EC</color>
+  <color name="md3_surface_container_high">#FFE8EEE8</color>
+</resources>

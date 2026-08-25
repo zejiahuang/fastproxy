@@ -1,0 +1,31 @@
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
+using XEPlatform = Xamarin.Essentials.Platform;
+using Android.App;
+using System.Application.Services.Native;
+
+namespace System.Application.Services.Implementation
+{
+    partial class AndroidPlatformServiceImpl
+    {
+        bool IPlatformService.UsePlatformForegroundService => true;
+
+        public static void StartOrStopForegroundService(Activity activity, string serviceName, bool? startOrStop = null)
+        {
+            switch (serviceName)
+            {
+                case nameof(ProxyService):
+                    if (!startOrStop.HasValue) startOrStop = !ProxyService.Current.ProxyStatus;
+                    ProxyForegroundService.StartOrStop(activity, startOrStop.Value);
+                    break;
+            }
+        }
+
+        async Task IPlatformService.StartOrStopForegroundServiceAsync(string serviceName, bool? startOrStop)
+        {
+            var activity = await XEPlatform.WaitForActivityAsync();
+            StartOrStopForegroundService(activity, serviceName, startOrStop);
+        }
+    }
+}

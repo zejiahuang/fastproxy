@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- MD3 Dark Color Roles -->
+  <color name="md3_primary">#FF82D9A4</color>
+  <color name="md3_on_primary">#FF003919</color>
+  <color name="md3_primary_container">#FF00522B</color>
+  <color name="md3_on_primary_container">#FF9DF6BF</color>
+
+  <color name="md3_secondary">#FFB4CCBA</color>
+  <color name="md3_on_secondary">#FF1F352A</color>
+  <color name="md3_secondary_container">#FF354B3F</color>
+  <color name="md3_on_secondary_container">#FFD0E8D6</color>
+
+  <color name="md3_tertiary">#FFA5CCDE</color>
+  <color name="md3_on_tertiary">#FF073543</color>
+  <color name="md3_tertiary_container">#FF244C5B</color>
+  <color name="md3_on_tertiary_container">#FFC1E8FA</color>
+
+  <color name="md3_error">#FFFFB4AB</color>
+  <color name="md3_on_error">#FF690005</color>
+  <color name="md3_error_container">#FF93000A</color>
+  <color name="md3_on_error_container">#FFFFDAD6</color>
+
+  <color name="md3_background">#FF191C1A</color>
+  <color name="md3_on_background">#FFE1E3DE</color>
+  <color name="md3_surface">#FF191C1A</color>
+  <color name="md3_on_surface">#FFE1E3DE</color>
+  <color name="md3_surface_variant">#FF414942</color>
+  <color name="md3_on_surface_variant">#FFC0C9C0</color>
+
+  <color name="md3_outline">#FF8A9389</color>
+  <color name="md3_outline_variant">#FF414942</color>
+
+  <color name="md3_inverse_surface">#FFE1E3DE</color>
+  <color name="md3_inverse_on_surface">#FF191C1A</color>
+  <color name="md3_inverse_primary">#FF1B6B4A</color>
+
+  <color name="md3_surface_container">#FF1F231F</color>
+  <color name="md3_surface_container_high">#FF2A2E2A</color>
+
+  <!-- Legacy dark colors (kept for compatibility) -->
+  <color name="splash_background">#222222</color>
+  <color name="grey_background">#FF1D201D</color>
+  <color name="grey_window_background">#FF141716</color>
+  <color name="text_primary">#FFE1E3DE</color>
+  <color name="text_secondary">#FFC4C7C2</color>
+  <color name="text_link">#FF82D9A4</color>
+  <color name="status_bar_color">@android:color/transparent</color>
+  <color name="icon_background">@color/md3_on_surface_variant</color>
+  <color name="bg_divider">#1FFFFFFF</color>
+  <color name="white">#FFE1E3DE</color>
+  <color name="shell_title_color">@color/md3_on_surface</color>
+</resources>

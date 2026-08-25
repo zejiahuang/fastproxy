@@ -74,7 +74,6 @@
 
 # Java
 *.class
-*.jar
 *.war
 *.ear
 **/.gradle/
@@ -85,13 +84,20 @@
 *.exe
 *.out
 *.app
-*.dll
-*.dylib
-*.so
 *.test
 **/target/
 **/go.work
 **/Cargo.lock
+
+# .NET
+**/bin/
+**/obj/
+*.user
+*.suo
+*.userprefs
+.nuget/
+**/publish/
+**/artifacts/
 
 # Ruby
 *.gem
@@ -174,3 +180,9 @@
 *.lz
 *.lzma
 *.iso
+
+# Build artifacts at workspace root
+/*.apk
+/*.aab
+/mapping.txt
+/SteamTools-2.8.3/

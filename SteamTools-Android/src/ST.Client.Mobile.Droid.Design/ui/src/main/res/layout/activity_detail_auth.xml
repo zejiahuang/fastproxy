@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  xmlns:xamarin="http://schemas.xamarin.com/android/xamarin/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="?attr/colorSurface"
+  android:orientation="vertical">
+
+  <include layout="@layout/shared_toolbar" />
+
+  <androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorSurfaceVariant"
+    android:clipToPadding="false"
+    android:paddingTop="@dimen/md3_spacing_small">
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center_horizontal"
+      android:orientation="vertical"
+      android:paddingBottom="@dimen/activity_vertical_margin">
+
+      <!-- Info Card -->
+      <com.google.android.material.card.MaterialCardView
+        style="@style/MainTheme2.Card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="@dimen/md3_spacing_small"
+        app:contentPadding="@dimen/activity_horizontal_margin">
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical">
+
+          <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvInfoTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:textColor="?attr/colorOnSurface"
+            tools:text="已启用一次性密码"
+            xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
+
+          <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvInfoDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/md3_spacing_extra_small"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            tools:text="可以使用此应用生成的一次性密码代码来验证登录"
+            xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
+        </LinearLayout>
+      </com.google.android.material.card.MaterialCardView>
+
+      <!-- OTP Code Card -->
+      <com.google.android.material.card.MaterialCardView
+        style="@style/MainTheme2.Card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="@dimen/md3_spacing_small"
+        app:contentPadding="@dimen/activity_horizontal_margin">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+          android:id="@+id/layoutValue"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:clickable="true"
+          android:focusable="true"
+          xamarin:managedType="AndroidX.ConstraintLayout.Widget.ConstraintLayout">
+
+          <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progress"
+            style="@style/MainTheme2.CircularProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:focusable="false"
+            app:indicatorDirectionCircular="counterclockwise"
+            app:indicatorSize="@dimen/auth_progress_indicator_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:trackCornerRadius="@dimen/auth_progress_track_corner_radius"
+            app:trackThickness="@dimen/auth_progress_track_thickness"
+            tools:progress="25"
+            xamarin:managedType="Google.Android.Material.ProgressIndicator.CircularProgressIndicator" />
+
+          <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:focusable="false"
+            android:textAppearance="?attr/textAppearanceLabelSmall"
+            android:textColor="?attr/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="@+id/progress"
+            app:layout_constraintEnd_toEndOf="@+id/progress"
+            app:layout_constraintStart_toStartOf="@+id/progress"
+            app:layout_constraintTop_toTopOf="@+id/progress"
+            tools:text="12"
+            xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
+
+          <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvValueTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:clickable="false"
+            android:focusable="false"
+            android:textAppearance="?attr/textAppearanceTitleSmall"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            app:layout_constraintStart_toEndOf="@+id/progress"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="一次性密码代码"
+            xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
+
+          <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:focusable="false"
+            android:fontFamily="sans-serif-light"
+            android:textAppearance="?attr/textAppearanceHeadlineMedium"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="@dimen/auth_value_font_size"
+            app:layout_constraintStart_toStartOf="@+id/tvValueTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvValueTitle"
+            tools:text="1 2 3 4 5 6"
+            xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
+
+          <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:clickable="false"
+            android:focusable="false"
+            app:layout_constraintBottom_toBottomOf="@+id/tvValue"
+            app:layout_constraintStart_toEndOf="@+id/tvValue"
+            app:layout_constraintTop_toTopOf="@+id/tvValue"
+            app:srcCompat="@drawable/baseline_content_copy_black_24"
+            app:tint="@color/md3_on_surface_variant"
+            xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatImageView" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+      </com.google.android.material.card.MaterialCardView>
+
+      <!-- Actions Card -->
+      <com.google.android.material.card.MaterialCardView
+        style="@style/MainTheme2.Card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="@dimen/md3_spacing_small"
+        app:contentPadding="0dp">
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical">
+
+          <FrameLayout
+            android:id="@+id/layoutEditName"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/preference_button_height_large"
+            android:background="?attr/colorSurface"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+              <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivIconEditName"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/baseline_edit_black_24"
+                app:tint="@color/icon_background"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatImageView" />
+
+              <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitleEditName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textColor="?attr/colorOnSurface"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivIconEditName"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="修改名称"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
+
+              <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="@dimen/gap_space_min"
+                android:background="@android:color/transparent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/outline_chevron_right_black_24"
+                app:tint="@color/md3_on_surface_variant"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatImageView" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+          </FrameLayout>
+
+          <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/colorOutlineVariant" />
+
+          <FrameLayout
+            android:id="@+id/layoutConfirmTrade"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/preference_button_height_large"
+            android:background="?attr/colorSurface"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+              <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivIconConfirmTrade"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/baseline_checklist_black_24"
+                app:tint="@color/icon_background"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatImageView" />
+
+              <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitleConfirmTrade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textColor="?attr/colorOnSurface"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivIconConfirmTrade"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="确认交易"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
+
+              <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="@dimen/gap_space_min"
+                android:background="@android:color/transparent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/outline_chevron_right_black_24"
+                app:tint="@color/md3_on_surface_variant"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatImageView" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+          </FrameLayout>
+
+          <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/colorOutlineVariant" />
+
+          <FrameLayout
+            android:id="@+id/layoutSeeData"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/preference_button_height_large"
+            android:background="?attr/colorSurface"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+              <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivIconSeeData"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/baseline_description_black_24"
+                app:tint="@color/icon_background"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatImageView" />
+
+              <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitleSeeData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textColor="?attr/colorOnSurface"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivIconSeeData"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="查看数据"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
+
+              <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="@dimen/gap_space_min"
+                android:background="@android:color/transparent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/outline_chevron_right_black_24"
+                app:tint="@color/md3_on_surface_variant"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatImageView" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+          </FrameLayout>
+
+          <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/colorOutlineVariant" />
+
+          <FrameLayout
+            android:id="@+id/layoutExport"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/preference_button_height_large"
+            android:background="?attr/colorSurface"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+              <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivIconExport"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/baseline_save_alt_black_24"
+                app:tint="@color/icon_background"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatImageView" />
+
+              <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitleExport"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textColor="?attr/colorOnSurface"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivIconExport"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="导出令牌"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
+
+              <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="@dimen/gap_space_min"
+                android:background="@android:color/transparent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/outline_chevron_right_black_24"
+                app:tint="@color/md3_on_surface_variant"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatImageView" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+          </FrameLayout>
+
+          <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/colorOutlineVariant" />
+
+          <FrameLayout
+            android:id="@+id/layoutDelete"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/preference_button_height_large"
+            android:background="?attr/colorSurface"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+              <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivIconDelete"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/baseline_close_black_24"
+                app:tint="@color/red_warn"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatImageView" />
+
+              <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitleDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textColor="@color/red_warn"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivIconDelete"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="删除令牌"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
+
+              <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="@dimen/gap_space_min"
+                android:background="@android:color/transparent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/outline_chevron_right_black_24"
+                app:tint="@color/md3_on_surface_variant"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatImageView" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+          </FrameLayout>
+        </LinearLayout>
+      </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+  </androidx.core.widget.NestedScrollView>
+</LinearLayout>

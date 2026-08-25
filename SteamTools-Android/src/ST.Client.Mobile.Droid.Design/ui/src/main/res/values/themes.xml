@@ -1,0 +1,164 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+  <!-- MD3 Base theme -->
+  <style name="MainTheme2.Base.Shared" parent="Theme.Material3.DayNight.NoActionBar">
+    <item name="actionOverflowMenuStyle">@style/MainTheme2.OverflowMenu</item>
+    <item name="android:textColorPrimary">@color/text_primary</item>
+    <item name="android:textColorSecondary">@color/text_secondary</item>
+
+    <!-- MD3 Color Roles -->
+    <item name="colorPrimary">@color/md3_primary</item>
+    <item name="colorOnPrimary">@color/md3_on_primary</item>
+    <item name="colorPrimaryContainer">@color/md3_primary_container</item>
+    <item name="colorOnPrimaryContainer">@color/md3_on_primary_container</item>
+
+    <item name="colorSecondary">@color/md3_secondary</item>
+    <item name="colorOnSecondary">@color/md3_on_secondary</item>
+    <item name="colorSecondaryContainer">@color/md3_secondary_container</item>
+    <item name="colorOnSecondaryContainer">@color/md3_on_secondary_container</item>
+
+    <item name="colorTertiary">@color/md3_tertiary</item>
+    <item name="colorOnTertiary">@color/md3_on_tertiary</item>
+    <item name="colorTertiaryContainer">@color/md3_tertiary_container</item>
+    <item name="colorOnTertiaryContainer">@color/md3_on_tertiary_container</item>
+
+    <item name="colorError">@color/md3_error</item>
+    <item name="colorOnError">@color/md3_on_error</item>
+    <item name="colorErrorContainer">@color/md3_error_container</item>
+    <item name="colorOnErrorContainer">@color/md3_on_error_container</item>
+
+    <item name="android:colorBackground">@color/md3_background</item>
+    <item name="colorOnBackground">@color/md3_on_background</item>
+    <item name="colorSurface">@color/md3_surface</item>
+    <item name="colorOnSurface">@color/md3_on_surface</item>
+    <item name="colorSurfaceVariant">@color/md3_surface_variant</item>
+    <item name="colorOnSurfaceVariant">@color/md3_on_surface_variant</item>
+
+    <item name="colorOutline">@color/md3_outline</item>
+    <item name="colorOutlineVariant">@color/md3_outline_variant</item>
+
+    <!-- MD3 Dynamic Color (Android 12+) -->
+    <item name="dynamicColorThemeOverlay">@style/ThemeOverlay.Material3.DynamicColors.DayNight</item>
+
+    <!-- MD3 Shape -->
+    <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Material3.SmallComponent</item>
+    <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Material3.MediumComponent</item>
+    <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Material3.LargeComponent</item>
+
+    <!-- MD3 Typography -->
+    <item name="textAppearanceDisplayLarge">@style/TextAppearance.Material3.DisplayLarge</item>
+    <item name="textAppearanceDisplayMedium">@style/TextAppearance.Material3.DisplayMedium</item>
+    <item name="textAppearanceDisplaySmall">@style/TextAppearance.Material3.DisplaySmall</item>
+    <item name="textAppearanceHeadlineLarge">@style/TextAppearance.Material3.HeadlineLarge</item>
+    <item name="textAppearanceHeadlineMedium">@style/TextAppearance.Material3.HeadlineMedium</item>
+    <item name="textAppearanceHeadlineSmall">@style/TextAppearance.Material3.HeadlineSmall</item>
+    <item name="textAppearanceTitleLarge">@style/TextAppearance.Material3.TitleLarge</item>
+    <item name="textAppearanceTitleMedium">@style/TextAppearance.Material3.TitleMedium</item>
+    <item name="textAppearanceTitleSmall">@style/TextAppearance.Material3.TitleSmall</item>
+    <item name="textAppearanceBodyLarge">@style/TextAppearance.Material3.BodyLarge</item>
+    <item name="textAppearanceBodyMedium">@style/TextAppearance.Material3.BodyMedium</item>
+    <item name="textAppearanceBodySmall">@style/TextAppearance.Material3.BodySmall</item>
+    <item name="textAppearanceLabelLarge">@style/TextAppearance.Material3.LabelLarge</item>
+    <item name="textAppearanceLabelMedium">@style/TextAppearance.Material3.LabelMedium</item>
+    <item name="textAppearanceLabelSmall">@style/TextAppearance.Material3.LabelSmall</item>
+  </style>
+
+  <style name="MainTheme2.Base" parent="MainTheme2.Base.Shared">
+    <item name="colorPrimary">@color/md3_primary</item>
+    <item name="colorOnPrimary">@color/md3_on_primary</item>
+    <item name="colorPrimaryContainer">@color/md3_primary_container</item>
+    <item name="colorOnPrimaryContainer">@color/md3_on_primary_container</item>
+    <item name="colorSecondary">@color/md3_secondary</item>
+    <item name="colorOnSecondary">@color/md3_on_secondary</item>
+    <item name="colorSecondaryContainer">@color/md3_secondary_container</item>
+    <item name="colorOnSecondaryContainer">@color/md3_on_secondary_container</item>
+  </style>
+
+  <style name="MainTheme2.V23" parent="MainTheme2.Base">
+    <item name="android:statusBarColor">@android:color/transparent</item>
+    <item name="android:navigationBarColor">@android:color/transparent</item>
+    <item name="android:windowLightStatusBar">true</item>
+    <item name="android:windowLightNavigationBar">true</item>
+  </style>
+
+  <style name="MainTheme2" parent="MainTheme2.V23" />
+
+  <style name="MainTheme2.Splash.Base" parent="Theme.Material3.DayNight.NoActionBar">
+    <item name="android:windowBackground">@drawable/splash_screen</item>
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowFullscreen">true</item>
+    <item name="android:windowContentOverlay">@null</item>
+  </style>
+
+  <style name="MainTheme2.Splash.Base.V28" parent="MainTheme2.Splash.Base">
+    <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+  </style>
+
+  <style name="MainTheme2.Splash" parent="MainTheme2.Splash.Base.V28" />
+
+  <style name="MainTheme2.NoActionBar" parent="MainTheme2">
+    <item name="windowActionBar">false</item>
+    <item name="windowNoTitle">true</item>
+  </style>
+
+  <style name="MainTheme2.TabLayoutTextStyle" parent="TextAppearance.Material3.TitleSmall">
+    <item name="textAllCaps">false</item>
+  </style>
+
+  <style name="MainTheme2.OverflowMenu" parent="@style/Widget.Material3.PopupMenu.Overflow">
+    <item name="android:overlapAnchor">false</item>
+  </style>
+
+  <style name="MainTheme2.Toolbar" parent="ThemeOverlay.Material3.Toolbar.Surface">
+    <item name="colorControlNormal">@color/shell_title_color</item>
+    <item name="android:background">@android:color/transparent</item>
+  </style>
+
+  <!-- MD3 Navigation Bar (Bottom Navigation) Style -->
+  <style name="MainTheme2.NavigationBar" parent="Widget.Material3.BottomNavigationView">
+    <item name="itemActiveIndicatorStyle">@style/MainTheme2.NavigationBar.ActiveIndicator</item>
+    <item name="itemRippleColor">@color/md3_primary_container</item>
+    <item name="labelVisibilityMode">labeled</item>
+  </style>
+
+  <style name="MainTheme2.NavigationBar.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+    <item name="android:color">@color/md3_primary_container</item>
+  </style>
+
+  <!-- MD3 Card Style -->
+  <style name="MainTheme2.Card" parent="Widget.Material3.CardView.Filled">
+    <item name="cardCornerRadius">12dp</item>
+    <item name="cardElevation">0dp</item>
+    <item name="strokeWidth">0dp</item>
+  </style>
+
+  <style name="MainTheme2.Card.Elevated" parent="Widget.Material3.CardView.Elevated">
+    <item name="cardCornerRadius">12dp</item>
+    <item name="cardElevation">1dp</item>
+  </style>
+
+  <!-- MD3 Button Styles -->
+  <style name="MainTheme2.Button" parent="Widget.Material3.Button">
+    <item name="cornerRadius">20dp</item>
+  </style>
+
+  <style name="MainTheme2.Button.Text" parent="Widget.Material3.Button.TextButton" />
+
+  <style name="MainTheme2.Button.Outlined" parent="Widget.Material3.Button.OutlinedButton">
+    <item name="cornerRadius">20dp</item>
+  </style>
+
+  <!-- MD3 Switch Style -->
+  <style name="MainTheme2.Switch" parent="Widget.Material3.CompoundButton.Switch" />
+
+  <!-- MD3 Checkbox Style -->
+  <style name="MainTheme2.Checkbox" parent="Widget.Material3.CompoundButton.CheckBox" />
+
+  <!-- MD3 Progress Indicator -->
+  <style name="MainTheme2.CircularProgress" parent="Widget.Material3.CircularProgressIndicator">
+    <item name="indicatorColor">?colorPrimary</item>
+    <item name="trackThickness">4dp</item>
+  </style>
+
+  <!-- MD3 Divider -->
+  <style name="MainTheme2.Divider" parent="Widget.Material3.MaterialDivider" />
+</resources>

@@ -1,0 +1,62 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.1;net6.0</TargetFrameworks>
+        <RootNamespace>Titanium.Web.Proxy</RootNamespace>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <SignAssembly>True</SignAssembly>
+        <AssemblyOriginatorKeyFile>StrongNameKey.snk</AssemblyOriginatorKeyFile>
+        <DelaySign>False</DelaySign>
+        <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+        <Nullable>enable</Nullable>
+        <LangVersion>10.0</LangVersion>
+        <NoWarn>CS8002</NoWarn>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" Exists('$(MSBuildProjectDirectory)\..\..\..\..\src\Common.CoreLib\Properties\ThisAssembly.Version.cs') ">
+        <DefineConstants>UnifiedVersion;$(DefineConstants)</DefineConstants>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Portable.BouncyCastle" />
+        <PackageReference Include="OperatingSystem2" />
+    </ItemGroup>
+
+    <ItemGroup Condition="$(TargetFramework.StartsWith('netstandard'))">
+        <PackageReference Include="Microsoft.Win32.Registry" />
+        <PackageReference Include="System.Security.Principal.Windows" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Update="Network\WinAuth\Security\Common.cs">
+            <ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
+            <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+        </Compile>
+        <Compile Update="Network\WinAuth\Security\LittleEndian.cs">
+            <ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
+            <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+        </Compile>
+        <Compile Update="Network\WinAuth\Security\Message.cs">
+            <ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
+            <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+        </Compile>
+        <Compile Update="Network\WinAuth\Security\State.cs">
+            <ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
+            <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+        </Compile>
+        <Compile Update="Properties\AssemblyInfo.cs">
+            <ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
+            <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+        </Compile>
+    </ItemGroup>
+
+    <ItemGroup Condition=" Exists('$(MSBuildProjectDirectory)\..\..\..\..\src\Common.CoreLib\Properties\ThisAssembly.Version.cs') ">
+        <Compile Include="..\..\..\..\src\Common.CoreLib\Properties\AssemblyInfo.Version.cs">
+            <Link>Properties\AssemblyInfo.Version.cs</Link>
+        </Compile>
+        <Compile Include="..\..\..\..\src\Common.CoreLib\Properties\ThisAssembly.Version.cs">
+            <Link>Properties\ThisAssembly.Version.cs</Link>
+        </Compile>
+    </ItemGroup>
+
+</Project>

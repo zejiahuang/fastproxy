@@ -1,0 +1,5 @@
+rootProject.name = "Steam++"
+include ':app'
+include ':ui'
+include ':v2ray'
+include ':shadowsocks'
