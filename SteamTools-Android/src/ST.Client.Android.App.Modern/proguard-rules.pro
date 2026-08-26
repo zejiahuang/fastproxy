@@ -1,0 +1,5 @@
+-keep class com.github.promeg.pinyinhelper.** { *; }
+-keep class com.github.promeg.tinypinyin.** { *; }
+-keep class org.ahocorasick.** { *; }
+-keep class net.steampp.app.shadowsocks.** { *; }
+-keepclassmembers class net.steampp.app.shadowsocks.** { *; }
