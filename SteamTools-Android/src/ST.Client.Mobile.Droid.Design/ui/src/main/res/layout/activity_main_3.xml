@@ -8,7 +8,7 @@
 
     <include layout="@layout/shared_toolbar" />
 
-    <com.google.android.material.navigation.NavigationBarView
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -22,7 +22,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/bottom_nav_menu"
-        xamarin:managedType="Google.Android.Material.Navigation.NavigationBarView" />
+        xamarin:managedType="Google.Android.Material.BottomNavigation.BottomNavigationView" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager2"
