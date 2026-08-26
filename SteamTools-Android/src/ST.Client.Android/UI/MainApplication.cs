@@ -70,17 +70,113 @@ namespace System.Application.UI
         //}
         //#endif
 
+        static string logFilePath;
+
+        static void WriteLog(string message)
+        {
+            try
+            {
+                if (logFilePath == null) return;
+                var timestamp = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
+                var line = $"[{timestamp}] {message}\n";
+                System.IO.File.AppendAllText(logFilePath, line);
+            }
+            catch { }
+        }
+
+        void InitFileLogging()
+        {
+            try
+            {
+                var dir = GetExternalFilesDir(null)?.AbsolutePath ?? CacheDir?.AbsolutePath;
+                if (dir == null) return;
+                var fileName = $"app_log_{System.DateTime.Now:yyyyMMdd_HHmmss}.txt";
+                logFilePath = System.IO.Path.Combine(dir, fileName);
+
+                WriteLog("===== Application Starting =====");
+                WriteLog($"Process: {this.GetCurrentProcessName()}");
+                WriteLog($"Package: {PackageName}");
+                WriteLog($"SDK: {Android.OS.Build.VERSION.SdkInt}");
+                WriteLog($"Device: {Android.OS.Build.Manufacturer} {Android.OS.Build.Model}");
+                WriteLog($"Log file: {logFilePath}");
+
+                Android.Util.Log.Info("MainApplication", $"Log file: {logFilePath}");
+
+                var logcatFile = System.IO.Path.Combine(dir, $"logcat_{System.DateTime.Now:yyyyMMdd_HHmmss}.txt");
+                try
+                {
+                    var pb = new Java.Lang.ProcessBuilder("logcat", "-v", "time", "*:W");
+                    pb.RedirectErrorStream(true);
+                    pb.RedirectOutput();
+                    var proc = pb.Start();
+                    var isr = new Java.IO.InputStreamReader(proc.InputStream);
+                    var br = new Java.IO.BufferedReader(isr);
+                    using var fs = new System.IO.StreamWriter(logcatFile, false);
+                    new System.Threading.Thread(() =>
+                    {
+                        try
+                        {
+                            string brLine;
+                            while ((brLine = br.ReadLine()) != null)
+                            {
+                                fs.WriteLine(brLine);
+                                fs.Flush();
+                            }
+                        }
+                        catch { }
+                    }) { IsBackground = true }.Start();
+                    WriteLog($"Logcat output: {logcatFile}");
+                }
+                catch (System.Exception ex)
+                {
+                    WriteLog($"Logcat capture failed: {ex.Message}");
+                }
+
+                System.AppDomain.CurrentDomain.UnhandledException += (s, e) =>
+                {
+                    var ex = e.ExceptionObject as System.Exception;
+                    WriteLog("===== UNHANDLED EXCEPTION =====");
+                    WriteLog(ex?.ToString() ?? e.ExceptionObject?.ToString() ?? "null");
+                    if (ex is System.TypeInitializationException tie && tie.InnerException != null)
+                        WriteLog($"Inner: {tie.InnerException}");
+                };
+
+                System.Threading.Tasks.TaskScheduler.UnobservedTaskException += (s, e) =>
+                {
+                    WriteLog("===== UNOBSERVED TASK EXCEPTION =====");
+                    WriteLog(e.Exception.ToString());
+                    e.SetObserved();
+                };
+
+                Java.Lang.Thread.DefaultUncaughtExceptionHandler = new JavaUncaughtExceptionHandler(WriteLog);
+            }
+            catch (System.Exception ex)
+            {
+                Android.Util.Log.Error("MainApplication", "InitFileLogging failed: " + ex);
+            }
+        }
+
+        class JavaUncaughtExceptionHandler : Java.Lang.Object, Java.Lang.Thread.IUncaughtExceptionHandler
+        {
+            readonly System.Action<string> writeLog;
+            public JavaUncaughtExceptionHandler(System.Action<string> writeLog) => this.writeLog = writeLog;
+            public void UncaughtException(Java.Lang.Thread t, Java.Lang.Throwable e)
+            {
+                writeLog("===== JAVA UNCAUGHT EXCEPTION =====");
+                writeLog($"Thread: {t?.Name}");
+                writeLog(e?.ToString() ?? "null");
+            }
+        }
+
         public override void OnCreate()
         {
             base.OnCreate();
 #if SHADOWSOCKS
             Shadowsocks.Core.Instance.Init(this);
 #endif
-            //#if DEBUG
-            //            //SetupLeakCanary();
-            //#endif
-
             const bool isTrace = true;
+
+            InitFileLogging();
 
             bool GetIsMainProcess()
             {
@@ -121,9 +217,13 @@ namespace System.Application.UI
                 }
                 catch (System.Exception ex)
                 {
-                    Android.Util.Log.Error("MainApplication", ex.ToString());
+                    WriteLog("===== VersionTracking EXCEPTION =====");
+                    WriteLog(ex.ToString());
                     if (ex is System.TypeInitializationException typeInitEx && typeInitEx.InnerException != null)
-                        Android.Util.Log.Error("MainApplication", "Inner: " + typeInitEx.InnerException);
+                    {
+                        WriteLog($"Inner Exception: {typeInitEx.InnerException}");
+                        WriteLog($"Inner StackTrace: {typeInitEx.InnerException.StackTrace}");
+                    }
                 }
             }
 
