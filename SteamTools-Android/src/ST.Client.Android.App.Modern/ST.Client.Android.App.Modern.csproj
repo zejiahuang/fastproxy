@@ -664,8 +664,11 @@
     <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_toolbar_webview.xml">
       <Link>Resources\layout\activity_toolbar_webview.xml</Link>
     </AndroidResource>
-    <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\animator\animation_keyboard_arrow_rotation.xml">
+    <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\menu\auth_trade_toolbar_menu.xml">
       <Link>Resources\menu\auth_trade_toolbar_menu.xml</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\animator\animation_keyboard_arrow_rotation.xml">
+      <Link>Resources\animator\animation_keyboard_arrow_rotation.xml</Link>
     </AndroidResource>
     <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\menu\barcode_scanner_menu.xml">
       <Link>Resources\menu\barcode_scanner_menu.xml</Link>
