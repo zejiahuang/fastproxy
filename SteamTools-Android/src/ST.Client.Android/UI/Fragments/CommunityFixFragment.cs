@@ -173,19 +173,6 @@ namespace System.Application.UI.Fragments
             var a = RequireActivity();
             if (start)
             {
-                if (Build.VERSION.SdkInt >= BuildVersionCodes.N)
-                {
-                    const string textCertificateTrustTip =
-                        "因 Android 7(Nougat API 24) 之后的版本不再信任用户证书，所以此功能已放弃继续开发，" +
-                        "如仍想使用需要自行使用 adb 工具或 Magisk 之类的软件导入证书到系统目录，" +
-                        "未来会使用不需要证书的加速功能替换此功能";
-                    if ((await MessageBox.ShowAsync(textCertificateTrustTip, "已知问题", MessageBox.Button.OKCancel,
-                         rememberChooseKey: MessageBox.DontPromptType.AndroidCertificateTrustTip)) != MessageBox.Result.OK)
-                    {
-                        return;
-                    }
-                }
-
                 Intent? intent = null;
                 if (/*!ignoreVPNCheck &&*/ ProxySettings.ProxyModeValue == ProxyMode.VPN) // 当启用 VPN 模式时
                 {
@@ -202,20 +189,6 @@ namespace System.Application.UI.Fragments
                         {
                             return;
                         }
-                    }
-                }
-
-                if (!IReverseProxyService.Instance.CertificateManager.IsRootCertificateInstalled) // 检查 CA 证书是否已安装
-                {
-                    // 当未安装证书时
-                    intent = new Intent(a, typeof(GuideCACertActivity));
-                    try
-                    {
-                        intent = await IntermediateActivity.StartAsync(intent, NextRequestCode());
-                    }
-                    catch (OperationCanceledException)
-                    {
-                        return;
                     }
                 }
 
@@ -276,44 +249,11 @@ namespace System.Application.UI.Fragments
 
         void SetMenuTitle() => menuBuilder.SetMenuTitle(ToString2, MenuIdResToEnum);
 
-        /// <summary>
-        /// 移除证书弹窗提示
-        /// </summary>
-        /// <param name="context"></param>
-        internal static async void UninstallCertificateShowTips(Context context)
-        {
-            string title = AppResources.CommunityFix_DeleteCertificateTipTitle;
-            string text = AppResources.CommunityFix_DeleteCertificateTipText_.Format(IReverseProxyService.RootCertificateName); ;
-            var r = await MessageBox.ShowAsync(text, title, MessageBox.Button.OKCancel);
-            if (r.IsOK())
-            {
-                GoToPlatformPages.SystemSettingsSecurity(context);
-            }
-        }
-
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             var actionItem = MenuIdResToEnum(item.ItemId);
             if (actionItem.IsDefined())
             {
-                switch (actionItem)
-                {
-                    case ActionItem.CertificateExport:
-                        ViewModel!.ExportCertificateFile();
-                        return true;
-                    case ActionItem.GoToSystemSecuritySettings:
-                        GoToPlatformPages.SystemSettingsSecurity(RequireContext());
-                        return true;
-                    case ActionItem.CertificateInstall:
-                        InstallCertificate();
-                        return true;
-                    case ActionItem.CertificateUninstall:
-                        UninstallCertificateShowTips(RequireContext());
-                        return true;
-                    case ActionItem.CertificateStatus:
-                        GoToPlatformPages.StartActivity<CACertStatusActivity>(RequireActivity());
-                        return true;
-                }
                 ViewModel!.MenuItemClick(actionItem);
                 return true;
             }
@@ -326,35 +266,8 @@ namespace System.Application.UI.Fragments
             {
                 return ActionItem.ProxySettings;
             }
-            else if (resId == Resource.Id.menu_export_certificate_file)
-            {
-                return ActionItem.CertificateExport;
-            }
-            else if (resId == Resource.Id.menu_settings_security)
-            {
-                return ActionItem.GoToSystemSecuritySettings;
-            }
-            else if (resId == Resource.Id.menu_install_certificate_file)
-            {
-                return ActionItem.CertificateInstall;
-            }
-            else if (resId == Resource.Id.menu_uninstall_certificate_file)
-            {
-                return ActionItem.CertificateUninstall;
-            }
-            else if (resId == Resource.Id.menu_certificate_status)
-            {
-                return ActionItem.CertificateStatus;
-            }
             return default;
         }
-
-        internal static void InstallCertificate(Context context, CommunityProxyPageViewModel vm) => vm.ExportCertificateFile(cefFilePath =>
-        {
-            GoToPlatformPages.InstallCertificate(context, cefFilePath, IReverseProxyService.RootCertificateName);
-        });
-
-        void InstallCertificate() => InstallCertificate(RequireContext(), ViewModel!);
 
 #if DEBUG
         async void Test()

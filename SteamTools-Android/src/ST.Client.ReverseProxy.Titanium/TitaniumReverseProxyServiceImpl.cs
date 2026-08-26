@@ -178,13 +178,6 @@ sealed class TitaniumReverseProxyServiceImpl : ReverseProxyServiceImpl, IReverse
             {
                 if (e.HttpClient.Request.RequestUri.AbsoluteUri.IsDomainPattern(host, RegexOptions.IgnoreCase))
                 {
-                    if (!e.HttpClient.IsHttps)
-                    {
-                        e.HttpClient.Request.RequestUri = new Uri(e.HttpClient.Request.RequestUri.AbsoluteUri.Remove(0, 4).Insert(0, Uri.UriSchemeHttps));
-                        //e.Redirect(e.HttpClient.Request.RequestUri.AbsoluteUri.Remove(0, 4).Insert(0, Uri.UriSchemeHttps));
-                        //return;
-                    }
-
                     if (item.Redirect)
                     {
                         var url = item.ForwardDomainName.Replace("{path}", e.HttpClient.Request.RequestUri.AbsolutePath);
@@ -218,23 +211,6 @@ sealed class TitaniumReverseProxyServiceImpl : ReverseProxyServiceImpl, IReverse
                         e.HttpClient.Request.Headers.AddHeader("User-Agent", newUA);
                     }
 
-                    if (e.HttpClient.ConnectRequest?.ClientHelloInfo?.Extensions != null)
-                    {
-#if DEBUG
-                        //Logger.Info("ClientHelloInfo Info: " + e.HttpClient.ConnectRequest.ClientHelloInfo);
-                        Debug.WriteLine("ClientHelloInfo Info: " + e.HttpClient.ConnectRequest.ClientHelloInfo);
-#endif
-                        if (!string.IsNullOrEmpty(item.ServerName))
-                        {
-                            var sni = e.HttpClient.ConnectRequest.ClientHelloInfo.Extensions["server_name"];
-                            e.HttpClient.ConnectRequest.ClientHelloInfo.Extensions["server_name"] =
-                                new SslExtension(sni.Value, sni.Name, item.ServerName, sni.Position);
-                        }
-                        else
-                        {
-                            e.HttpClient.ConnectRequest.ClientHelloInfo.Extensions.Remove("server_name");
-                        }
-                    }
                     return;
                 }
             }
@@ -261,6 +237,8 @@ sealed class TitaniumReverseProxyServiceImpl : ReverseProxyServiceImpl, IReverse
 
     async Task OnResponse(object sender, SessionEventArgs e)
     {
+        // 免证书加速：不做 MITM 解密，禁用脚本注入
+        return;
 #if DEBUG
         Debug.WriteLine("OnResponse" + e.HttpClient.Request.RequestUri.AbsoluteUri);
         Log.Info(TAG, "OnResponse" + e.HttpClient.Request.RequestUri.AbsoluteUri);
@@ -461,7 +439,7 @@ sealed class TitaniumReverseProxyServiceImpl : ReverseProxyServiceImpl, IReverse
         }
         if (e.SniHostName.Contains(LocalDomain, StringComparison.OrdinalIgnoreCase) || TwoLevelAgentEnable)
         {
-            e.DecryptSsl = true;
+            e.DecryptSsl = false;
             return Task.CompletedTask;
         }
         foreach (var item in ProxyDomains)
@@ -480,7 +458,7 @@ sealed class TitaniumReverseProxyServiceImpl : ReverseProxyServiceImpl, IReverse
                     {
                         e.ForwardHttpsHostName = item.ServerName;
                         e.ForwardHttpsPort = item.PortId;
-                        e.DecryptSsl = true;
+                        e.DecryptSsl = false;
                         return Task.CompletedTask;
                     }
                 }
@@ -504,7 +482,7 @@ sealed class TitaniumReverseProxyServiceImpl : ReverseProxyServiceImpl, IReverse
         }
         if (e.HttpClient.Request.Host.Contains(LocalDomain, StringComparison.OrdinalIgnoreCase) || TwoLevelAgentEnable || OnlyEnableProxyScript)
         {
-            e.DecryptSsl = true;
+            e.DecryptSsl = false;
             return;
         }
         foreach (var item in ProxyDomains)
@@ -513,7 +491,7 @@ sealed class TitaniumReverseProxyServiceImpl : ReverseProxyServiceImpl, IReverse
             {
                 if (e.HttpClient.Request.Url.IsDomainPattern(host, RegexOptions.IgnoreCase))
                 {
-                    e.DecryptSsl = true;
+                    e.DecryptSsl = false;
                     if (item.ProxyType == ProxyType.Local ||
                         item.ProxyType == ProxyType.ServerAccelerate)
                     {

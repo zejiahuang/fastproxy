@@ -155,17 +155,7 @@ abstract class ReverseProxyServiceImpl
 
     public async ValueTask<bool> StartProxy()
     {
-        if (!CertificateManager.IsRootCertificateInstalled)
-        {
-            //CertificateManager.DeleteRootCertificate();
-            var isOk = await CertificateManager.SetupRootCertificate();
-            if (!isOk)
-            {
-                Log.Error("StartProxy", "证书安装失败，或未信任。");
-                return false;
-            }
-        }
-
+        // 免证书加速：不再依赖安装/信任 CA 根证书，直接启动透传代理
         return await StartProxyImpl();
     }
 

@@ -27,6 +27,7 @@
     <PublishTrimmed>false</PublishTrimmed>
     <AndroidFragmentType>AndroidX.Fragment.App.Fragment</AndroidFragmentType>
     <AndroidEnableMarshalMethods>false</AndroidEnableMarshalMethods>
+    <AndroidPackageFormats>apk</AndroidPackageFormats>
   </PropertyGroup>
 
   <!--当前包是否为应用商店渠道包(IS_STORE_PACKAGE)-->
@@ -222,12 +223,6 @@
     <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_barcode_scanner.xml">
       <Link>Resources\layout\activity_barcode_scanner.xml</Link>
     </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_ca_cert_status.xml">
-      <Link>Resources\layout\activity_ca_cert_status.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_ca_cert_status_content.xml">
-      <Link>Resources\layout\activity_ca_cert_status_content.xml</Link>
-    </AndroidBoundLayout>
     <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_detail_auth.xml">
       <Link>Resources\layout\activity_detail_auth.xml</Link>
     </AndroidBoundLayout>
@@ -320,12 +315,6 @@
     </AndroidBoundLayout>
     <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\fragment_game_list.xml">
       <Link>Resources\layout\fragment_game_list.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\fragment_guide_export_ca_cert.xml">
-      <Link>Resources\layout\fragment_guide_export_ca_cert.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\fragment_guide_how_install_ca_cert.xml">
-      <Link>Resources\layout\fragment_guide_how_install_ca_cert.xml</Link>
     </AndroidBoundLayout>
     <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\fragment_local_auth.xml">
       <Link>Resources\layout\fragment_local_auth.xml</Link>
@@ -699,21 +688,12 @@
     <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_about_not_binding.xml">
       <Link>Resources\layout\activity_about_not_binding.xml</Link>
     </AndroidResource>
-    <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_guide_ca_cert.xml">
-      <Link>Resources\layout\activity_guide_ca_cert.xml</Link>
-    </AndroidResource>
     <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_settings_not_binding.xml">
       <Link>Resources\layout\activity_settings_not_binding.xml</Link>
     </AndroidResource>
     <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_toolbar_webview.xml">
       <Link>Resources\layout\activity_toolbar_webview.xml</Link>
     </AndroidResource>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\fragment_guide_export_ca_cert_content.xml">
-      <Link>Resources\layout\fragment_guide_export_ca_cert_content.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\fragment_guide_how_install_ca_cert_content.xml">
-      <Link>Resources\layout\fragment_guide_how_install_ca_cert_content.xml</Link>
-    </AndroidBoundLayout>
     <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\menu\asf_plus_toolbar_menu.xml">
       <Link>Resources\menu\asf_plus_toolbar_menu.xml</Link>
     </AndroidResource>
@@ -785,9 +765,6 @@
     </AndroidResource>
     <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\mipmap-xxxhdpi\ic_launcher_round.png">
       <Link>Resources\mipmap-xxxhdpi\ic_launcher_round.png</Link>
-    </AndroidResource>
-    <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\navigation\nav_graph_guide_ca_cert.xml">
-      <Link>Resources\navigation\nav_graph_guide_ca_cert.xml</Link>
     </AndroidResource>
     <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\navigation\nav_graph_login_or_register.xml">
       <Link>Resources\navigation\nav_graph_login_or_register.xml</Link>
