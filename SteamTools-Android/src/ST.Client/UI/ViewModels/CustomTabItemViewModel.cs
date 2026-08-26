@@ -11,10 +11,6 @@ namespace System.Application.UI.ViewModels
             ProxyScriptManage,
             SteamAccount,
             GameList,
-            LocalAuth,
-#if !EXCLUDE_ASF
-            ArchiSteamFarmPlus,
-#endif
             GameRelated,
             Settings,
             About,
@@ -29,10 +25,6 @@ namespace System.Application.UI.ViewModels
             TabItemId.ProxyScriptManage => ProxyScriptManagePageViewModel.DisplayName,
             TabItemId.SteamAccount => SteamAccountPageViewModel.DisplayName,
             TabItemId.GameList => GameListPageViewModel.DisplayName,
-            TabItemId.LocalAuth => LocalAuthPageViewModel.DisplayName,
-#if !EXCLUDE_ASF
-            TabItemId.ArchiSteamFarmPlus => ArchiSteamFarmPlusPageViewModel.DisplayName,
-#endif
             TabItemId.GameRelated => GameRelatedPageViewModel.DisplayName,
             TabItemId.Settings => SettingsPageViewModel.DisplayName,
             TabItemId.About => AboutPageViewModel.DisplayName,
@@ -48,10 +40,6 @@ namespace System.Application.UI.ViewModels
             TabItemId.ProxyScriptManage => typeof(ProxyScriptManagePageViewModel),
             TabItemId.SteamAccount => typeof(SteamAccountPageViewModel),
             TabItemId.GameList => typeof(GameListPageViewModel),
-            TabItemId.LocalAuth => typeof(LocalAuthPageViewModel),
-#if !EXCLUDE_ASF
-            TabItemId.ArchiSteamFarmPlus => typeof(ArchiSteamFarmPlusPageViewModel),
-#endif
             TabItemId.GameRelated => typeof(GameRelatedPageViewModel),
             TabItemId.Settings => typeof(SettingsPageViewModel),
             TabItemId.About => typeof(AboutPageViewModel),
@@ -129,32 +117,6 @@ namespace System.Application.UI.ViewModels
             get => DisplayName;
         }
     }
-
-    partial class LocalAuthPageViewModel : TabItemViewModel
-    {
-        public static string DisplayName => AppResources.LocalAuth;
-
-        public override TabItemId Id => TabItemId.LocalAuth;
-
-        public override string Name
-        {
-            get => DisplayName;
-        }
-    }
-
-#if !EXCLUDE_ASF
-    partial class ArchiSteamFarmPlusPageViewModel : TabItemViewModel
-    {
-        public static string DisplayName => AppResources.ArchiSteamFarmPlus;
-
-        public override TabItemId Id => TabItemId.ArchiSteamFarmPlus;
-
-        public override string Name
-        {
-            get => DisplayName;
-        }
-    }
-#endif
 
     partial class SettingsPageViewModel : TabItemViewModel
     {

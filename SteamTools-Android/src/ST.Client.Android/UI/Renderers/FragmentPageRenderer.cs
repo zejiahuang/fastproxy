@@ -9,12 +9,6 @@ using Xamarin.Forms.Platform.Android;
 using n = System.Application.UI.Views.Native;
 
 [assembly: ExportRenderer(
-    typeof(n.LocalAuthPage),
-    typeof(FragmentPageRenderer<LocalAuthFragment>))]
-[assembly: ExportRenderer(
-    typeof(n.ArchiSteamFarmPlusPage),
-    typeof(FragmentPageRenderer<ASFPlusFragment>))]
-[assembly: ExportRenderer(
     typeof(n.MyPage),
     typeof(FragmentPageRenderer<MyFragment>))]
 [assembly: ExportRenderer(

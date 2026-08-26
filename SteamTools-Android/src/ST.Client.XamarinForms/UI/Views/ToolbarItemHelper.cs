@@ -67,18 +67,4 @@ namespace System.Application.UI.Views
             return actions;
         }
     }
-
-    public interface ILocalAuthPage : IViewFor<LocalAuthPageViewModel>, IPage
-    {
-        IReadOnlyDictionary<LocalAuthPageViewModel.ActionItem, ToolbarItem> Actions { get; }
-
-        protected static IReadOnlyDictionary<LocalAuthPageViewModel.ActionItem, ToolbarItem> InitToolbarItems(ILocalAuthPage page) => page.ViewModel!.InitToolbarItems(LocalAuthPageViewModel.ActionItem.Refresh).AddToPage(page.@this);
-    }
-
-    public interface IArchiSteamFarmPlusPage : IViewFor<ArchiSteamFarmPlusPageViewModel>, IPage
-    {
-        IReadOnlyDictionary<ArchiSteamFarmPlusPageViewModel.ActionItem, ToolbarItem> Actions { get; }
-
-        protected static IReadOnlyDictionary<ArchiSteamFarmPlusPageViewModel.ActionItem, ToolbarItem> InitToolbarItems(IArchiSteamFarmPlusPage page) => page.ViewModel!.InitToolbarItems(ArchiSteamFarmPlusPageViewModel.ActionItem.Refresh).AddToPage(page.@this);
-    }
 }

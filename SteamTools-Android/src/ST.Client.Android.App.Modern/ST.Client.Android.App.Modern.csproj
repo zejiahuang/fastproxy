@@ -277,15 +277,6 @@
     <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\fragment_account_binding_content.xml">
       <Link>Resources\layout\fragment_account_binding_content.xml</Link>
     </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\fragment_asf_plus_bot.xml">
-      <Link>Resources\layout\fragment_asf_plus_bot.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\fragment_asf_plus_config.xml">
-      <Link>Resources\layout\fragment_asf_plus_config.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\fragment_asf_plus_console.xml">
-      <Link>Resources\layout\fragment_asf_plus_console.xml</Link>
-    </AndroidBoundLayout>
     <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\fragment_basic_profile.xml">
       <Link>Resources\layout\fragment_basic_profile.xml</Link>
     </AndroidBoundLayout>
@@ -315,21 +306,6 @@
     </AndroidBoundLayout>
     <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\fragment_game_list.xml">
       <Link>Resources\layout\fragment_game_list.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\fragment_local_auth.xml">
-      <Link>Resources\layout\fragment_local_auth.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\fragment_local_auth_import_other.xml">
-      <Link>Resources\layout\fragment_local_auth_import_other.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\fragment_local_auth_import_steam_app.xml">
-      <Link>Resources\layout\fragment_local_auth_import_steam_app.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\fragment_local_auth_import_steam_plus_plus.xml">
-      <Link>Resources\layout\fragment_local_auth_import_steam_plus_plus.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\fragment_local_auth_import_steam_user.xml">
-      <Link>Resources\layout\fragment_local_auth_import_steam_user.xml</Link>
     </AndroidBoundLayout>
     <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\fragment_login_and_register_by_fast.xml">
       <Link>Resources\layout\fragment_login_and_register_by_fast.xml</Link>
@@ -388,9 +364,6 @@
     <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\list_combobox_item.xml">
       <Link>Resources\layout\list_combobox_item.xml</Link>
     </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\local_auth_appwidget.xml">
-      <Link>Resources\layout\local_auth_appwidget.xml</Link>
-    </AndroidBoundLayout>
     <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\shared_divider.xml">
       <Link>Resources\layout\shared_divider.xml</Link>
     </AndroidBoundLayout>
@@ -403,9 +376,6 @@
     <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\textbox_password.xml">
       <Link>Resources\layout\textbox_password.xml</Link>
     </AndroidBoundLayout>
-    <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\menu\asf_plus_toolbar_menu.xml">
-      <Link>Resources\menu\asf_plus_toolbar_menu.xml</Link>
-    </AndroidResource>
     <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\animator\animation_keyboard_arrow_rotation.xml">
       <Link>Resources\animator\animation_keyboard_arrow_rotation.xml</Link>
     </AndroidResource>
@@ -694,10 +664,7 @@
     <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_toolbar_webview.xml">
       <Link>Resources\layout\activity_toolbar_webview.xml</Link>
     </AndroidResource>
-    <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\menu\asf_plus_toolbar_menu.xml">
-      <Link>Resources\menu\asf_plus_toolbar_menu.xml</Link>
-    </AndroidResource>
-    <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\menu\auth_trade_toolbar_menu.xml">
+    <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\animator\animation_keyboard_arrow_rotation.xml">
       <Link>Resources\menu\auth_trade_toolbar_menu.xml</Link>
     </AndroidResource>
     <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\menu\barcode_scanner_menu.xml">
@@ -711,9 +678,6 @@
     </AndroidResource>
     <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\menu\explorer_toolbar_menu.xml">
       <Link>Resources\menu\explorer_toolbar_menu.xml</Link>
-    </AndroidResource>
-    <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\menu\local_auth_toolbar_menu.xml">
-      <Link>Resources\menu\local_auth_toolbar_menu.xml</Link>
     </AndroidResource>
     <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\mipmap-anydpi-v26\ic_launcher.xml">
       <Link>Resources\mipmap-anydpi-v26\ic_launcher.xml</Link>
@@ -825,9 +789,6 @@
     </AndroidResource>
     <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\values-zh-rHK\strings.xml">
       <Link>Resources\values-zh-rHK\strings.xml</Link>
-    </AndroidResource>
-    <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\xml\local_auth_appwidget_info.xml">
-      <Link>Resources\xml\local_auth_appwidget_info.xml</Link>
     </AndroidResource>
   </ItemGroup>
 

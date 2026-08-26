@@ -76,7 +76,6 @@ namespace System.Application.Services.Implementation
 
             var activityType = customWindow switch
             {
-                CustomWindow.AddAuth => typeof(AddAuthActivity),
                 CustomWindow.ExportAuth => typeof(ExportAuthActivity),
                 CustomWindow.EncryptionAuth => typeof(EncryptionAuthActivity),
                 CustomWindow.ProxySettings => typeof(ProxySettingsActivity),

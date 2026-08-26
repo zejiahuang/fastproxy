@@ -32,8 +32,6 @@ namespace System.Application.UI
 
             #region Flyout
 
-            //            InitTabItems(mainWindow, TabItemId.LocalAuth, TabItemId.ArchiSteamFarmPlus);
-
             //            AddPage(MyPageViewModel.Instance, isVisible: false);
             //#if DEBUG
             //            AddPage(new LoginOrRegisterWindowViewModel());
@@ -132,8 +130,6 @@ namespace System.Application.UI
         void InitButtomTabItems(MainWindowViewModel mainWindow)
         {
             var tabItems = new ViewModelBase[] {
-                mainWindow.LocalAuthPage,
-                mainWindow.ASFPage,
                 MyPageViewModel.Instance,
             };
             TabBar tabBar = new();
@@ -170,18 +166,7 @@ namespace System.Application.UI
                 if (tabItemVM.IconKey == null) return default;
                 if (IsUseBottomNav)
                 {
-                    if (tabItemVM is LocalAuthPageViewModel)
-                    {
-                        icon = "baseline_verified_user_black_24";
-                    }
-                    else if (tabItemVM is ArchiSteamFarmPlusPageViewModel)
-                    {
-                        icon = "icon_asf_24";
-                    }
-                    else
-                    {
-                        return default;
-                    }
+                    return default;
                 }
                 else
                 {
@@ -224,10 +209,6 @@ namespace System.Application.UI
                 {
                     switch (tabItem.Id)
                     {
-                        case TabItemId.LocalAuth:
-                            return typeof(n.LocalAuthPage);
-                        case TabItemId.ArchiSteamFarmPlus:
-                            return typeof(n.ArchiSteamFarmPlusPage);
                         case TabItemId.Settings:
                             return typeof(n.SettingsPage);
                         case TabItemId.About:

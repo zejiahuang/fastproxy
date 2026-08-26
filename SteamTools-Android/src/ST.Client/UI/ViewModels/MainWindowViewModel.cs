@@ -41,13 +41,7 @@ namespace System.Application.UI.ViewModels
 
         public GameListPageViewModel GameListPage => GetTabItemVM<GameListPageViewModel>();
 
-        public LocalAuthPageViewModel LocalAuthPage => GetTabItemVM<LocalAuthPageViewModel>();
-
         public SteamIdlePageViewModel SteamIdlePage => GetTabItemVM<SteamIdlePageViewModel>();
-
-#if !EXCLUDE_ASF
-        public ArchiSteamFarmPlusPageViewModel ASFPage => GetTabItemVM<ArchiSteamFarmPlusPageViewModel>();
-#endif
 
         public GameRelatedPageViewModel GameRelatedPage => GetTabItemVM<GameRelatedPageViewModel>();
 
@@ -104,10 +98,6 @@ namespace System.Application.UI.ViewModels
                 tabIdItems.Add(TabItemViewModel.TabItemId.SteamAccount);
                 tabIdItems.Add(TabItemViewModel.TabItemId.GameList);
             }
-            tabIdItems.Add(TabItemViewModel.TabItemId.LocalAuth);
-#if !EXCLUDE_ASF
-            tabIdItems.Add(TabItemViewModel.TabItemId.ArchiSteamFarmPlus);
-#endif
             //tabIdItems.Add(TabItemViewModel.TabItemId.SteamIdle);
 
 #if !TRAY_INDEPENDENT_PROGRAM
