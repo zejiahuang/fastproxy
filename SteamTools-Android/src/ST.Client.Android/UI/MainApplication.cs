@@ -107,14 +107,23 @@ namespace System.Application.UI
 
             if (IsMainProcess)
             {
-                XEVersionTracking.Track();
-                if (isTrace) StartWatchTrace.Record("VersionTracking");
-
-                if (XEVersionTracking.IsFirstLaunchForCurrentVersion)
+                try
                 {
-                    // 当前版本第一次启动时，清除存放升级包缓存文件夹的目录
-                    IApplicationUpdateService.ClearAllPackCacheDir();
-                    if (isTrace) StartWatchTrace.Record("ClearAllPackCacheDir");
+                    XEVersionTracking.Track();
+                    if (isTrace) StartWatchTrace.Record("VersionTracking");
+
+                    if (XEVersionTracking.IsFirstLaunchForCurrentVersion)
+                    {
+                        // 当前版本第一次启动时，清除存放升级包缓存文件夹的目录
+                        IApplicationUpdateService.ClearAllPackCacheDir();
+                        if (isTrace) StartWatchTrace.Record("ClearAllPackCacheDir");
+                    }
+                }
+                catch (System.Exception ex)
+                {
+                    Android.Util.Log.Error("MainApplication", ex.ToString());
+                    if (ex is System.TypeInitializationException typeInitEx && typeInitEx.InnerException != null)
+                        Android.Util.Log.Error("MainApplication", "Inner: " + typeInitEx.InnerException);
                 }
             }
 
