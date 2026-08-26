@@ -58,7 +58,8 @@ namespace Microsoft.Extensions.DependencyInjection
 
         public static IServiceCollection AddAutoMapper(this IServiceCollection services)
         {
-            services.AddAutoMapper(cfg => cfg.AddProfile<AutoMapperProfile>());
+            services.AddSingleton<AutoMapper.IConfigurationProvider>(sp => new AutoMapper.MapperConfiguration(cfg => cfg.AddProfile<AutoMapperProfile>()));
+            services.AddTransient<AutoMapper.IMapper>(sp => sp.GetRequiredService<AutoMapper.IConfigurationProvider>().CreateMapper());
             return services;
         }
 
