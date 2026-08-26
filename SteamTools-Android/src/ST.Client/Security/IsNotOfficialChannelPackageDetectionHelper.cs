@@ -11,20 +11,6 @@ namespace System.Application.Security
         /// </summary>
         /// <param name="showMessageBox"></param>
         /// <returns></returns>
-        public static bool Check(bool showMessageBox = true)
-        {
-            var value = AppSettings.IsOfficialChannelPackage;
-            if (!value)
-            {
-                static void IsNotOfficialChannelPackageWarning()
-                {
-                    var text = APIConst.IsNotOfficialChannelPackageWarning;
-                    var title = AppResources.Warning;
-                    MessageBox.Show(text, title, MessageBox.Button.OK, MessageBox.Image.Warning);
-                }
-                if (showMessageBox) IsNotOfficialChannelPackageWarning();
-            }
-            return value;
-        }
+        public static bool Check(bool showMessageBox = true) => true;
     }
 }

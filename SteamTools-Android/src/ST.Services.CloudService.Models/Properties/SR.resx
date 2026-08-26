@@ -133,7 +133,7 @@
     <value>客户端错误 {0} - {1}</value>
   </data>
   <data name="IsNotOfficialChannelPackageWarning" xml:space="preserve">
-    <value>当前运行的程序不是来自官方渠道</value>
+    <value></value>
   </data>
   <data name="NetworkConnectionInterruption" xml:space="preserve">
     <value>网络连接中断</value>

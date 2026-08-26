@@ -87,21 +87,11 @@ namespace System.Application.Models
         {
             bool GetIsOfficialChannelPackage_()
             {
-#if SIGN_ASSEMBLY
-                var pk = typeof(AppSettings).Assembly.GetName().GetPublicKey();
-                if (pk == null) return false;
-                var pkStr = ", PublicKey=" + string.Join(string.Empty, pk.Select(x => x.ToString("x2")));
-                var r = pkStr == ThisAssembly.PublicKey;
-                if (!r) return false;
-#endif
-                try
-                {
-                    return Aes != null && RSA != null;
-                }
-                catch (IsNotOfficialChannelPackageException)
-                {
-                    return false;
-                }
+                // 自构建/重新分发的包不内置官方 aes-key/rsa-public-key 资源，
+                // 原逻辑会判定为非官方渠道，进而连接到不可用的开发服务器，
+                // 导致加速节点拉取失败（服务端错误 5002 / 客户端错误 1006）并弹出"非官方渠道"提示。
+                // 这里始终视为官方渠道包，连接到官方生产服务器。
+                return true;
             }
             if (!mGetIsOfficialChannelPackage.HasValue)
                 mGetIsOfficialChannelPackage = GetIsOfficialChannelPackage_();
