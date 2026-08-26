@@ -26,6 +26,7 @@
     <AndroidLinkTool>r8</AndroidLinkTool>
     <PublishTrimmed>false</PublishTrimmed>
     <AndroidFragmentType>AndroidX.Fragment.App.Fragment</AndroidFragmentType>
+    <AndroidEnableMarshalMethods>false</AndroidEnableMarshalMethods>
   </PropertyGroup>
 
   <!--当前包是否为应用商店渠道包(IS_STORE_PACKAGE)-->

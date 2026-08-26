@@ -31,20 +31,31 @@ namespace System.Application.UI.Fragments
 
         public override View? OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            if (AuthorizeAttribute.HasAuthorize(this))
+            try
             {
-                if (!UserService.Current.IsAuthenticated)
+                if (AuthorizeAttribute.HasAuthorize(this))
                 {
-                    return null;
+                    if (!UserService.Current.IsAuthenticated)
+                    {
+                        return null;
+                    }
                 }
-            }
 
-            var view = CreateView(LayoutResource, inflater, container);
-            if (view != null)
-            {
-                OnCreateView(view);
+                var view = CreateView(LayoutResource, inflater, container);
+                if (view != null)
+                {
+                    OnCreateView(view);
+                }
+                return view;
             }
-            return view;
+            catch (System.Exception ex)
+            {
+                MainApplication.WriteLog($"===== FRAGMENT OnCreateView EXCEPTION ({(GetType().Name)}) =====");
+                MainApplication.WriteLog(ex?.ToString() ?? "null");
+                if (ex is System.TypeInitializationException tie && tie.InnerException != null)
+                    MainApplication.WriteLog($"Inner: {tie.InnerException}");
+                throw;
+            }
         }
 
         public override void OnDestroyView()
@@ -98,29 +109,40 @@ namespace System.Application.UI.Fragments
 
         public override View? OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            if (AuthorizeAttribute.HasAuthorize(this))
+            try
             {
-                if (!UserService.Current.IsAuthenticated)
+                if (AuthorizeAttribute.HasAuthorize(this))
                 {
-                    return null;
+                    if (!UserService.Current.IsAuthenticated)
+                    {
+                        return null;
+                    }
                 }
-            }
 
-            var view = BaseFragment.CreateView(LayoutResource, inflater, container);
-            if (view == null) return null;
-            var ignoreDisposableHolder = false;
-            var viewModel = OnCreateViewModel();
-            //if (UseGetViewModelByActivity && viewModel == null)
-            //{
-            //    viewModel = this.GetViewModelByActivity<TViewModel>();
-            //    if (viewModel != null)
-            //    {
-            //        ignoreDisposableHolder = true;
-            //    }
-            //}
-            this.SetViewModel(viewModel, ignoreDisposableHolder);
-            OnCreateView(view);
-            return view;
+                var view = BaseFragment.CreateView(LayoutResource, inflater, container);
+                if (view == null) return null;
+                var ignoreDisposableHolder = false;
+                var viewModel = OnCreateViewModel();
+                //if (UseGetViewModelByActivity && viewModel == null)
+                //{
+                //    viewModel = this.GetViewModelByActivity<TViewModel>();
+                //    if (viewModel != null)
+                //    {
+                //        ignoreDisposableHolder = true;
+                //    }
+                //}
+                this.SetViewModel(viewModel, ignoreDisposableHolder);
+                OnCreateView(view);
+                return view;
+            }
+            catch (System.Exception ex)
+            {
+                MainApplication.WriteLog($"===== FRAGMENT<,> OnCreateView EXCEPTION ({(GetType().Name)}) =====");
+                MainApplication.WriteLog(ex?.ToString() ?? "null");
+                if (ex is System.TypeInitializationException tie && tie.InnerException != null)
+                    MainApplication.WriteLog($"Inner: {tie.InnerException}");
+                throw;
+            }
         }
 
         public override void OnDestroyView()

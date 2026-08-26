@@ -72,7 +72,7 @@ namespace System.Application.UI
 
         static string logFilePath;
 
-        static void WriteLog(string message)
+        internal static void WriteLog(string message)
         {
             try
             {
