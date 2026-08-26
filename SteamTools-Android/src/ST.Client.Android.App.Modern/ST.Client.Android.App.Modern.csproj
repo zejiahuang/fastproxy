@@ -22,7 +22,7 @@
     <AotAssemblies>false</AotAssemblies>
     <EnableLLVM>false</EnableLLVM>
     <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
-    <AndroidLinkMode>Full</AndroidLinkMode>
+    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
     <AndroidLinkTool>r8</AndroidLinkTool>
     <PublishTrimmed>false</PublishTrimmed>
     <AndroidFragmentType>AndroidX.Fragment.App.Fragment</AndroidFragmentType>
