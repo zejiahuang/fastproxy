@@ -456,9 +456,13 @@ sealed class TitaniumReverseProxyServiceImpl : ReverseProxyServiceImpl, IReverse
 
                     if (e.SniHostName.IsDomainPattern(h, RegexOptions.IgnoreCase))
                     {
-                        e.ForwardHttpsHostName = item.ServerName;
-                        e.ForwardHttpsPort = item.PortId;
                         e.DecryptSsl = false;
+                        var serverName = item.ServerName;
+                        if (IsValidForwardHost(serverName))
+                        {
+                            e.ForwardHttpsHostName = serverName;
+                            e.ForwardHttpsPort = item.PortId;
+                        }
                         return Task.CompletedTask;
                     }
                 }
@@ -559,5 +563,18 @@ sealed class TitaniumReverseProxyServiceImpl : ReverseProxyServiceImpl, IReverse
     public FlowStatistics? GetFlowStatistics()
     {
         return null;
+    }
+
+    static bool IsValidForwardHost(string? host)
+    {
+        if (string.IsNullOrWhiteSpace(host))
+        {
+            return false;
+        }
+        if (host.Contains('{') || host.Contains('@') || host.Contains(':') || host.Contains("http", StringComparison.OrdinalIgnoreCase))
+        {
+            return false;
+        }
+        return host.Contains('.');
     }
 }
