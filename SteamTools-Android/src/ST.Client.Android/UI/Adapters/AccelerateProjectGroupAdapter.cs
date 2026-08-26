@@ -8,6 +8,7 @@ using TViewModel = System.Application.Models.AccelerateProjectGroupDTO;
 using static System.Application.UI.Resx.AppResources;
 using System.Application.Services;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using DynamicData;
 using DynamicData.Binding;
 using AndroidX.VectorDrawable.Graphics.Drawable;
@@ -22,7 +23,7 @@ namespace System.Application.UI.Adapters
 
         }
 
-        public AccelerateProjectGroupAdapter(ProxyService proxyService) : base(proxyService.ProxyDomainsList, proxyService.ProxyDomains)
+        public AccelerateProjectGroupAdapter(ProxyService proxyService) : base(proxyService.ProxyDomainsList as IList<TViewModel> ?? new ObservableCollection<TViewModel>(Array.Empty<TViewModel>()), proxyService.ProxyDomains)
         {
 
         }

@@ -54,7 +54,8 @@ namespace System.Application.UI.Fragments
                 MainApplication.WriteLog(ex?.ToString() ?? "null");
                 if (ex is System.TypeInitializationException tie && tie.InnerException != null)
                     MainApplication.WriteLog($"Inner: {tie.InnerException}");
-                throw;
+                MainApplication.WriteLog($"(app continues; {GetType().Name} view omitted)");
+                return null;
             }
         }
 
@@ -141,7 +142,8 @@ namespace System.Application.UI.Fragments
                 MainApplication.WriteLog(ex?.ToString() ?? "null");
                 if (ex is System.TypeInitializationException tie && tie.InnerException != null)
                     MainApplication.WriteLog($"Inner: {tie.InnerException}");
-                throw;
+                MainApplication.WriteLog($"(app continues; {GetType().Name} view omitted)");
+                return null;
             }
         }
 
