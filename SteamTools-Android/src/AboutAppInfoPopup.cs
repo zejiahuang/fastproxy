@@ -533,10 +533,6 @@ namespace System.Application.UI
             b.Append(GetAssemblyVersion(typeof(ServiceCollection).Assembly));
             b.AppendLine();
 
-            b.Append("[skia.ver] ");
-            b.Append(GetAssemblyVersion(typeof(SkiaSharp.SKColor).Assembly));
-            b.AppendLine();
-
 #if AVALONIA
             b.Append("[harfbuzz.ver] ");
             b.Append(GetAssemblyVersion(typeof(HarfBuzzSharp.NativeObject).Assembly));
