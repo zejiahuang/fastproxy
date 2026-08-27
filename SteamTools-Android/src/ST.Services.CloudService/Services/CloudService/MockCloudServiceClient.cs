@@ -2,7 +2,6 @@
 using System.Application.Models;
 using System.Application.Services.CloudService.Clients.Abstractions;
 using System.Collections.Generic;
-using System.IO.FileFormats;
 using System.Net.Http;
 using System.Runtime.InteropServices;
 using System.Threading;
@@ -10,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace System.Application.Services.CloudService
 {
-    public sealed partial class MockCloudServiceClient : ICloudServiceClient, IAccountClient, IManageClient, IAuthMessageClient, IVersionClient, IActiveUserClient, IAccelerateClient, IScriptClient, IDonateRankingClient, INoticeClient, IAdvertisementClient
+    public sealed partial class MockCloudServiceClient : ICloudServiceClient, IAuthMessageClient, IVersionClient, IActiveUserClient, IAccelerateClient, IScriptClient, INoticeClient
     {
         readonly IToast toast;
         readonly IModelValidator validator;
@@ -25,11 +24,7 @@ namespace System.Application.Services.CloudService
 
         public string ApiBaseUrl => real.ApiBaseUrl;
 
-        public IAccountClient Account => this;
-
         public IScriptClient Script => this;
-
-        public IManageClient Manage => this;
 
         public IAuthMessageClient AuthMessage => this;
 
@@ -39,11 +34,7 @@ namespace System.Application.Services.CloudService
 
         public IAccelerateClient Accelerate => this;
 
-        public IDonateRankingClient DonateRanking => this;
-
         public INoticeClient Notice => this;
-
-        public IAdvertisementClient Advertisement => this;
 
         #region ModelValidator
 
@@ -79,53 +70,6 @@ namespace System.Application.Services.CloudService
             }
         }
 
-        public async Task<IApiResponse<string>> ChangeBindPhoneNumber(ChangePhoneNumberRequest.Validation request)
-        {
-            var mockDelay = false;
-            var rsp = ModelValidator<ChangePhoneNumberRequest.Validation, string>(request) ?? ChangeBindPhoneNumber_();
-            if (mockDelay) await Task.Delay(1500);
-            GlobalResponseIntercept(rsp);
-            return rsp;
-            IApiResponse<string> ChangeBindPhoneNumber_()
-            {
-                mockDelay = true;
-                return ApiResponse.Ok("123");
-            }
-        }
-
-        public async Task<IApiResponse> ChangeBindPhoneNumber(ChangePhoneNumberRequest.New request)
-        {
-            var mockDelay = false;
-            var rsp = ModelValidator(request) ?? ChangeBindPhoneNumber_();
-            if (mockDelay) await Task.Delay(1500);
-            GlobalResponseIntercept(rsp);
-            return rsp;
-            IApiResponse ChangeBindPhoneNumber_()
-            {
-                mockDelay = true;
-                return ApiResponse.Ok();
-            }
-        }
-
-        public async Task<IApiResponse> BindPhoneNumber(BindPhoneNumberRequest request)
-        {
-            var mockDelay = false;
-            var rsp = ModelValidator(request) ?? BindPhoneNumber_();
-            if (mockDelay) await Task.Delay(1500);
-            GlobalResponseIntercept(rsp);
-            return rsp;
-            IApiResponse BindPhoneNumber_()
-            {
-                mockDelay = true;
-                return ApiResponse.Ok();
-            }
-        }
-
-        public Task<IApiResponse<AppVersionDTO?>> CheckUpdate(Guid id, Platform platform, DeviceIdiom deviceIdiom, ArchitectureFlags supportedAbis, Version osVersion, ArchitectureFlags abi)
-        {
-            return Task.FromResult<IApiResponse<AppVersionDTO?>>(ApiResponse.Ok<AppVersionDTO?>(default));
-        }
-
         public Task<IApiResponse<AppVersionDTO?>> CheckUpdate2(Guid id,
             Platform platform,
             DeviceIdiom deviceIdiom,
@@ -136,32 +80,6 @@ namespace System.Application.Services.CloudService
             return Task.FromResult<IApiResponse<AppVersionDTO?>>(ApiResponse.Ok<AppVersionDTO?>(default));
         }
 
-        public Task<IApiResponse> UnbundleAccount(FastLoginChannel channel)
-        {
-            return Task.FromResult<IApiResponse>(ApiResponse.Ok());
-        }
-
-        public Task<IApiResponse<UserInfoDTO>> RefreshUserInfo()
-        {
-            return Task.FromResult<IApiResponse<UserInfoDTO>>(ApiResponse.Ok(new UserInfoDTO
-            {
-
-            }));
-        }
-
-        public Task<IApiResponse<ClockInResponse>> ClockIn()
-        {
-            return Task.FromResult<IApiResponse<ClockInResponse>>(ApiResponse.Ok(new ClockInResponse
-            {
-                Level = 99,
-            }));
-        }
-
-        public Task<IApiResponse> DeleteAccount()
-        {
-            return Task.FromResult<IApiResponse>(ApiResponse.Ok());
-        }
-
         public Task<IApiResponse> Download(bool isAnonymous, string requestUri, string cacheFilePath, IProgress<float>? progress, CancellationToken cancellationToken = default)
         {
             return Task.FromResult<IApiResponse>(ApiResponse.Ok());
@@ -170,35 +88,6 @@ namespace System.Application.Services.CloudService
         public Task<HttpResponseMessage> Forward(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException();
-            //return real.Forward(request, completionOption, cancellationToken);
-        }
-
-        public async Task<IApiResponse<LoginOrRegisterResponse>> LoginOrRegister(LoginOrRegisterRequest request)
-        {
-            var mockDelay = false;
-            var rsp = ModelValidator<LoginOrRegisterRequest, LoginOrRegisterResponse>(request) ?? LoginOrRegister_();
-            if (mockDelay) await Task.Delay(1500);
-            GlobalResponseIntercept(rsp);
-            return rsp;
-            IApiResponse<LoginOrRegisterResponse> LoginOrRegister_()
-            {
-                mockDelay = true;
-                return ApiResponse.Ok(new LoginOrRegisterResponse
-                {
-                    AuthToken = new JWTEntity
-                    {
-                        AccessToken = "123",
-                        ExpiresIn = DateTimeOffset.MaxValue,
-                        RefreshToken = "321",
-                    },
-                    IsLoginOrRegister = true,
-                    User = new UserInfoDTO
-                    {
-                        Level = 98,
-                        NickName = "User",
-                    },
-                });
-            }
         }
 
         public Task<IApiResponse> Post(ActiveUserRecordDTO record)
@@ -206,22 +95,11 @@ namespace System.Application.Services.CloudService
             return Task.FromResult<IApiResponse>(ApiResponse.Ok());
         }
 
-        public Task<IApiResponse<JWTEntity>> RefreshToken(string refresh_token)
-        {
-            throw new NotImplementedException();
-        }
-
         public ValueTask<IApiResponse> SendSms(SendSmsRequest request)
         {
             var rsp = ModelValidator(request) ?? ApiResponse.Ok();
             GlobalResponseIntercept(rsp);
             return new ValueTask<IApiResponse>(rsp);
-        }
-
-        public async Task<IApiResponse> EditUserProfile(EditUserProfileRequest request)
-        {
-            await Task.Delay(1500);
-            return ApiResponse.Ok();
         }
 
         public async Task<IApiResponse<ScriptResponse>> Basics(string? msg = null)
@@ -245,21 +123,9 @@ namespace System.Application.Services.CloudService
             return ApiResponse.Ok(new List<ScriptResponse> { });
         }
 
-        public async Task<IApiResponse> SignOut()
-        {
-            await Task.Delay(1500);
-            return ApiResponse.Ok();
-        }
-
         Task<string> ICloudServiceClient.Info()
         {
             return Task.FromResult(string.Empty);
-        }
-
-        public async Task<IApiResponse<PagedModel<RankingResponse>>> RangeQuery(PageQueryRequest<RankingRequest> model)
-        {
-            await Task.Delay(1500);
-            return ApiResponse.Ok(new PagedModel<RankingResponse> { });
         }
 
         public async Task<IApiResponse<NoticeTypeDTO[]>> Types()
@@ -280,24 +146,7 @@ namespace System.Application.Services.CloudService
             return ApiResponse.Ok(new PagedModel<NoticeDTO> { });
         }
 
-        public async Task<IApiResponse<ClockInResponse>> ClockIn(ClockInRequest request)
-        {
-            await Task.Delay(1500);
-            return ApiResponse.Ok(new ClockInResponse { });
-        }
-
-        public async Task<IApiResponse<IEnumerable<DateTimeOffset>>> ClockInLogs(DateTimeOffset? time)
-        {
-            await Task.Delay(1500);
-            return ApiResponse.Ok(new List<DateTimeOffset> { });
-        }
-
         public Task<IApiResponse<ClockInResponse>> AccountClockIn()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IApiResponse<List<AdvertisementDTO>>> All(EAdvertisementType? type = EAdvertisementType.Banner)
         {
             throw new NotImplementedException();
         }
