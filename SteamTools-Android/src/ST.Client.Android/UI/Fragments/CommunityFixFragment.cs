@@ -20,6 +20,7 @@ using System.Text;
 using System.Application.Services.Implementation;
 using Android.Net;
 using Android.Content;
+using System.Linq;
 using System.Application.UI.Activities;
 using Android.App;
 using static AndroidX.Activity.Result.ActivityResultTask;
@@ -86,6 +87,8 @@ namespace System.Application.UI.Fragments
                     SetProxyModeText();
                     StringBuilder s = new();
                     var enableProxyDomains = proxyS.GetEnableProxyDomains();
+                    var enableNames = enableProxyDomains?.Select(x => x.Name) ?? Enumerable.Empty<string>();
+                    Log.Info("CommunityProxy", "StartProxy EnableDomains[" + enableNames.Count() + "]: " + string.Join(" | ", enableNames));
                     if (enableProxyDomains != null)
                     {
                         foreach (var item in enableProxyDomains)

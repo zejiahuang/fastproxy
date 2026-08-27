@@ -644,16 +644,7 @@ namespace System.Application.UI
             {
                 var userService = _UserService.Current;
                 var isAuthenticated = userService.IsAuthenticated;
-                var csc = ICloudServiceClient.Instance;
-                if (isAuthenticated)
-                {
-                    // 刷新用户信息
-                    var rspRUserInfo = await csc.Manage.RefreshUserInfo();
-                    if (rspRUserInfo.IsSuccess && rspRUserInfo.Content != null)
-                    {
-                        await userService.SaveUserAsync(rspRUserInfo.Content);
-                    }
-                }
+            var csc = ICloudServiceClient.Instance;
 #if !__MOBILE__ && !MAUI
                 var screens = PlatformApplication.Instance.MainWindow!.Screens;
 #else

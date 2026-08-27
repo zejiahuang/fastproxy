@@ -11,11 +11,7 @@ namespace System.Application.Services
     {
         string ApiBaseUrl { get; }
 
-        IAccountClient Account { get; }
-
         IScriptClient Script { get; }
-
-        IManageClient Manage { get; }
 
         IAuthMessageClient AuthMessage { get; }
 
@@ -26,10 +22,6 @@ namespace System.Application.Services
         IAccelerateClient Accelerate { get; }
 
         INoticeClient Notice { get; }
-
-        IDonateRankingClient DonateRanking { get; }
-
-        IAdvertisementClient Advertisement { get; }
 
         /// <inheritdoc cref="IApiConnection.DownloadAsync(bool, CancellationToken, string, string, IProgress{float})"/>
         Task<IApiResponse> Download(bool isAnonymous, string requestUri, string cacheFilePath, IProgress<float>? progress, CancellationToken cancellationToken = default);

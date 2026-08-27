@@ -23,7 +23,6 @@ namespace System.Application.UI.ViewModels
 
         public enum PreferenceButton
         {
-            捐助,
             检查更新 = 1,
             更新日志,
             常见问题疑难解答,
@@ -35,16 +34,12 @@ namespace System.Application.UI.ViewModels
             源码仓库,
             产品官网,
             开放源代码许可,
-
-            账号注销,
         }
 
         public static bool IsHeaderPreferenceButton(PreferenceButton button) => button switch
         {
-            PreferenceButton.捐助 or
             PreferenceButton.联系我们 or
-            PreferenceButton.源码仓库 or
-            PreferenceButton.账号注销 => true,
+            PreferenceButton.源码仓库 => true,
             _ => false,
         };
 
@@ -58,7 +53,6 @@ namespace System.Application.UI.ViewModels
             {
                 var title = id switch
                 {
-                    PreferenceButton.捐助 => AppResources.About_Donate,
                     PreferenceButton.检查更新 => AppResources.CheckUpdate,
                     PreferenceButton.更新日志 => AppResources.About_UpdateLog,
                     PreferenceButton.常见问题疑难解答 => AppResources.About_FAQ,
@@ -67,21 +61,10 @@ namespace System.Application.UI.ViewModels
                     PreferenceButton.产品官网 => AppResources.ProductOfficialWebsite,
                     PreferenceButton.联系我们 => AppResources.About_Contactus,
                     PreferenceButton.Bug反馈 => AppResources.BugFeedback,
-                    PreferenceButton.账号注销 => AppResources.DelAccount,
                     PreferenceButton.社区翻译 => AppResources.Translators,
                     _ => id.ToString(),
                 };
                 return title;
-            }
-
-            public static void RemoveAuthorized(ICollection<PreferenceButtonViewModel> collection, IDisposableHolder vm)
-            {
-                var removeArray = collection.Where(x => x.Id == PreferenceButton.账号注销).ToArray();
-                Array.ForEach(removeArray, x =>
-                {
-                    collection.Remove(x);
-                    x.OnUnbind(vm);
-                });
             }
 
             /// <summary>

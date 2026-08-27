@@ -66,9 +66,6 @@ namespace System.Application.UI.Controllers
             {
                 switch (e.Current.Id)
                 {
-                    case PreferenceButton.捐助:
-                        Activity.StartActivity<DonateActivity>();
-                        break;
                     case PreferenceButton.检查更新:
                         ViewModel!.CheckUpdateCommand.Invoke();
                         break;
@@ -112,9 +109,6 @@ namespace System.Application.UI.Controllers
                             Gitee => UrlConstants.Gitee_Issues,
                             _ => default,
                         }));
-                        break;
-                    case PreferenceButton.账号注销:
-                        ViewModel!.DelAccountCommand.Invoke();
                         break;
                     case PreferenceButton.社区翻译:
                         TextBlockActivity.StartActivity(Activity, new TextBlockViewModel

@@ -161,11 +161,6 @@ namespace System.Application.UI.Controllers
                 SetIsAutoCheckUpdateChecked();
                 return true;
             }
-            else if (view.Id == Resource.Id.layoutRootGeneralSettingsStorageSpace)
-            {
-                Activity.StartActivity<ExplorerActivity>();
-                return true;
-            }
             else if (view.Id == Resource.Id.layoutRootGeneralSettingsCaptureScreen)
             {
                 GeneralSettings.CaptureScreen.Value = !GeneralSettings.CaptureScreen.Value;

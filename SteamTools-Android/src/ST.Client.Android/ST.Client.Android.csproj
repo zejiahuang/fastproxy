@@ -146,7 +146,6 @@
     <PackageReference Include="Xamarin.AndroidX.Camera.View" />
     <PackageReference Include="Xamarin.AndroidX.Camera.Lifecycle" />
     <PackageReference Include="Xamarin.Google.Dagger" />
-    <PackageReference Include="Xamarin.Google.MLKit.BarcodeScanning" />
     <PackageReference Include="Xamarin.Build.Download" />
     <!--<PackageReference Include="Xamarin.AndroidX.Window" />-->
     <PackageReference Include="Microsoft.Net.Http.Headers" />
@@ -458,31 +457,13 @@
     <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_about_not_binding.xml">
       <Link>Resources\layout\activity_about_not_binding.xml</Link>
     </AndroidResource>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_barcode_scanner.xml">
-      <Link>Resources\layout\activity_barcode_scanner.xml</Link>
-    </AndroidBoundLayout>
     <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_ca_cert_status.xml">
       <Link>Resources\layout\activity_ca_cert_status.xml</Link>
     </AndroidBoundLayout>
     <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_ca_cert_status_content.xml">
       <Link>Resources\layout\activity_ca_cert_status_content.xml</Link>
     </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_detail_auth.xml">
-      <Link>Resources\layout\activity_detail_auth.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_donate.xml">
-      <Link>Resources\layout\activity_donate.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_encryption_auth.xml">
-      <Link>Resources\layout\activity_encryption_auth.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_explorer.xml">
-      <Link>Resources\layout\activity_explorer.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_export_auth.xml">
-      <Link>Resources\layout\activity_export_auth.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_guide_ca_cert.xml">
+                <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_guide_ca_cert.xml">
       <Link>Resources\layout\activity_guide_ca_cert.xml</Link>
     </AndroidResource>
     <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_guide_vpn.xml">
@@ -490,9 +471,6 @@
     </AndroidBoundLayout>
     <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_guide_vpn_content.xml">
       <Link>Resources\layout\activity_guide_vpn_content.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_login_or_register.xml">
-      <Link>Resources\layout\activity_login_or_register.xml</Link>
     </AndroidBoundLayout>
     <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_main_3.xml">
       <Link>Resources\layout\activity_main_3.xml</Link>
@@ -503,13 +481,7 @@
     <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_settings_not_binding.xml">
       <Link>Resources\layout\activity_settings_not_binding.xml</Link>
     </AndroidResource>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_steam_auth_data.xml">
-      <Link>Resources\layout\activity_steam_auth_data.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_steam_auth_trade.xml">
-      <Link>Resources\layout\activity_steam_auth_trade.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_tablayout_viewpager2.xml">
+            <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_tablayout_viewpager2.xml">
       <Link>Resources\layout\activity_tablayout_viewpager2.xml</Link>
     </AndroidBoundLayout>
     <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_textblock.xml">
@@ -518,10 +490,7 @@
     <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_toolbar_tablayout_viewpager2.xml">
       <Link>Resources\layout\activity_toolbar_tablayout_viewpager2.xml</Link>
     </AndroidBoundLayout>
-    <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_toolbar_webview.xml">
-      <Link>Resources\layout\activity_toolbar_webview.xml</Link>
-    </AndroidResource>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\fragment_about.xml">
+        <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\fragment_about.xml">
       <Link>Resources\layout\fragment_about.xml</Link>
     </AndroidBoundLayout>
     <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\fragment_account_binding.xml">
@@ -623,25 +592,7 @@
     <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\layout_card_accelerate_project_group_content.xml">
       <Link>Resources\layout\layout_card_accelerate_project_group_content.xml</Link>
     </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\layout_card_gap_authenticator.xml">
-      <Link>Resources\layout\layout_card_gap_authenticator.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\layout_card_gap_authenticator_content.xml">
-      <Link>Resources\layout\layout_card_gap_authenticator_content.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\layout_card_steam_auth_trade_confirmation.xml">
-      <Link>Resources\layout\layout_card_steam_auth_trade_confirmation.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\layout_card_steam_auth_trade_confirmation_content.xml">
-      <Link>Resources\layout\layout_card_steam_auth_trade_confirmation_content.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\layout_donate_user.xml">
-      <Link>Resources\layout\layout_donate_user.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\layout_file_or_dir.xml">
-      <Link>Resources\layout\layout_file_or_dir.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\layout_login_and_register_by_fast_channel.xml">
+                    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\layout_login_and_register_by_fast_channel.xml">
       <Link>Resources\layout\layout_login_and_register_by_fast_channel.xml</Link>
     </AndroidBoundLayout>
     <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\layout_preference_large_button.xml">
@@ -671,20 +622,11 @@
     <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\menu\asf_plus_toolbar_menu.xml">
       <Link>Resources\menu\asf_plus_toolbar_menu.xml</Link>
     </AndroidResource>
-    <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\menu\auth_trade_toolbar_menu.xml">
-      <Link>Resources\menu\auth_trade_toolbar_menu.xml</Link>
-    </AndroidResource>
-    <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\menu\barcode_scanner_menu.xml">
-      <Link>Resources\menu\barcode_scanner_menu.xml</Link>
-    </AndroidResource>
-    <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\menu\bottom_nav_menu.xml">
+        <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\menu\bottom_nav_menu.xml">
       <Link>Resources\menu\bottom_nav_menu.xml</Link>
     </AndroidResource>
     <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\menu\community_fix_toolbar_menu.xml">
       <Link>Resources\menu\community_fix_toolbar_menu.xml</Link>
-    </AndroidResource>
-    <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\menu\explorer_toolbar_menu.xml">
-      <Link>Resources\menu\explorer_toolbar_menu.xml</Link>
     </AndroidResource>
     <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\menu\local_auth_toolbar_menu.xml">
       <Link>Resources\menu\local_auth_toolbar_menu.xml</Link>
@@ -742,9 +684,6 @@
     </AndroidResource>
     <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\navigation\nav_graph_guide_ca_cert.xml">
       <Link>Resources\navigation\nav_graph_guide_ca_cert.xml</Link>
-    </AndroidResource>
-    <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\navigation\nav_graph_login_or_register.xml">
-      <Link>Resources\navigation\nav_graph_login_or_register.xml</Link>
     </AndroidResource>
     <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\values\colors.xml">
       <Link>Resources\values\colors.xml</Link>

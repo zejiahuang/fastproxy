@@ -3,12 +3,14 @@ using Binding;
 using ReactiveUI;
 using System.Application.UI.Resx;
 using System.Application.UI.ViewModels;
+using System.Application.Models;
 using TViewHolder = System.Application.UI.Adapters.AccelerateProjectGroupViewHolder;
 using TViewModel = System.Application.Models.AccelerateProjectGroupDTO;
 using static System.Application.UI.Resx.AppResources;
 using System.Application.Services;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using DynamicData;
 using DynamicData.Binding;
 using AndroidX.VectorDrawable.Graphics.Drawable;
@@ -117,6 +119,9 @@ namespace System.Application.UI.Adapters
                 {
                     ViewModel.ThreeStateEnable = isChecked;
                 }
+                var enableItems = (ViewModel.ObservableItems ?? new ObservableCollection<AccelerateProjectDTO>())
+                    .Where(x => x.Enable).Select(x => x.Name);
+                Log.Info("CommunityProxy", $"Group '{ViewModel.Name}' checked={isChecked} prev3State={value} now3State={ViewModel.ThreeStateEnable} enableItems=[{string.Join(",", enableItems)}]");
             };
 
             SetIsOpen(false);

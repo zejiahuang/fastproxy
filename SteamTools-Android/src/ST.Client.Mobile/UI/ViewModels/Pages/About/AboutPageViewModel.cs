@@ -16,23 +16,6 @@ namespace System.Application.UI.ViewModels
         public AboutPageViewModel()
         {
             preferenceButtons = new(Enum2.GetAll<PreferenceButton>().Select(x => PreferenceButtonViewModel.Create(x, this)));
-
-            UserService.Current.WhenAnyValue(x => x.User).Subscribe(value =>
-            {
-                if (value == null)
-                {
-                    PreferenceButtonViewModel.RemoveAuthorized(preferenceButtons, this);
-                }
-                else
-                {
-                    var delAccount = preferenceButtons.FirstOrDefault(x => x.Id == PreferenceButton.账号注销);
-                    if (delAccount == null)
-                    {
-                        delAccount = PreferenceButtonViewModel.Create(PreferenceButton.账号注销, this);
-                        preferenceButtons.Add(delAccount);
-                    }
-                }
-            }).AddTo(this);
         }
 
         ObservableCollection<PreferenceButtonViewModel> preferenceButtons;
@@ -55,16 +38,13 @@ namespace System.Application.UI.ViewModels
             源码仓库,
             产品官网,
             开放源代码许可,
-
-            账号注销,
         }
 
         public static bool IsHeaderPreferenceButton(PreferenceButton button) => button switch
         {
             PreferenceButton.检查更新 or
             PreferenceButton.联系我们 or
-            PreferenceButton.源码仓库 or
-            PreferenceButton.账号注销 => true,
+            PreferenceButton.源码仓库 => true,
             _ => false,
         };
 
@@ -86,21 +66,10 @@ namespace System.Application.UI.ViewModels
                     PreferenceButton.产品官网 => AppResources.ProductOfficialWebsite,
                     PreferenceButton.联系我们 => AppResources.About_Contactus,
                     PreferenceButton.Bug反馈 => AppResources.BugFeedback,
-                    PreferenceButton.账号注销 => AppResources.DelAccount,
                     PreferenceButton.社区翻译 => AppResources.Translators,
                     _ => id.ToString(),
                 };
                 return title;
-            }
-
-            public static void RemoveAuthorized(ICollection<PreferenceButtonViewModel> collection, IDisposableHolder vm)
-            {
-                var removeArray = collection.Where(x => x.Id == PreferenceButton.账号注销).ToArray();
-                Array.ForEach(removeArray, x =>
-                {
-                    collection.Remove(x);
-                    x.OnUnbind(vm);
-                });
             }
 
             /// <summary>

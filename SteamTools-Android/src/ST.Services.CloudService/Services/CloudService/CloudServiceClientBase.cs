@@ -21,10 +21,6 @@ namespace System.Application.Services.CloudService
 
         public IScriptClient Script { get; }
 
-        public IAccountClient Account { get; }
-
-        public IManageClient Manage { get; }
-
         public IAuthMessageClient AuthMessage { get; }
 
         public IVersionClient Version { get; }
@@ -34,10 +30,6 @@ namespace System.Application.Services.CloudService
         public INoticeClient Notice { get; }
 
         public IAccelerateClient Accelerate { get; }
-
-        public IDonateRankingClient DonateRanking { get; }
-
-        public IAdvertisementClient Advertisement { get; }
 
         #endregion
 
@@ -86,16 +78,12 @@ namespace System.Application.Services.CloudService
 
             #region SetClients
 
-            Account = new AccountClient(connection);
-            Manage = new ManageClient(connection);
             AuthMessage = new AuthMessageClient(connection);
             Version = new VersionClient(connection);
             ActiveUser = new ActiveUserClient(connection);
             Accelerate = new AccelerateClient(connection);
             Script = new ScriptClient(connection);
-            DonateRanking = new DonateRankingClient(connection);
             Notice = new NoticeClient(connection);
-            Advertisement = new AdvertisementClient(connection);
             #endregion
         }
 
@@ -120,7 +108,7 @@ namespace System.Application.Services.CloudService
             => connection.DownloadAsync(cancellationToken, requestUri, cacheFilePath, progress, isAnonymous);
 
         Task<IApiResponse<JWTEntity>> IApiConnectionPlatformHelper.RefreshToken(JWTEntity jwt)
-            => Account.RefreshToken(jwt);
+            => Task.FromResult<IApiResponse<JWTEntity>>(default!);
 
         Task<HttpResponseMessage> ICloudServiceClient.Forward(
             HttpRequestMessage request,
@@ -133,9 +121,7 @@ namespace System.Application.Services.CloudService
         }
 
         Task<IApiResponse<ClockInResponse>> ICloudServiceClient.AccountClockIn()
-        {
-            return Account.ClockIn(new ClockInRequest { CreationTime = DateTimeOffset.Now });
-        }
+            => Task.FromResult<IApiResponse<ClockInResponse>>(default!);
 
         async Task<string> ICloudServiceClient.Info()
         {

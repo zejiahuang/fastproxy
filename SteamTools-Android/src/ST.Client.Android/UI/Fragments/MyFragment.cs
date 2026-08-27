@@ -8,9 +8,6 @@ using System.Application.UI.Activities;
 using System.Application.UI.Adapters;
 using System.Application.UI.ViewModels;
 using static System.Application.UI.ViewModels.MyPageViewModel;
-#if __XAMARIN_FORMS__
-using XFShell = Xamarin.Forms.Shell;
-#endif
 
 namespace System.Application.UI.Fragments
 {
@@ -31,97 +28,22 @@ namespace System.Application.UI.Fragments
                 binding.tvNickName.Text = value;
             }).AddTo(this);
 
-            SetOnClickListener(binding!.layoutUser);
-
             var adapter = new LargePreferenceButtonAdapter<PreferenceButtonViewModel, PreferenceButton>(ViewModel!.PreferenceButtons);
             adapter.ItemClick += (_, e) =>
             {
-                if (e.Current.Authentication && !UserService.Current.IsAuthenticated)
-                {
-                    OnClick(binding!.layoutUser);
-                    return;
-                }
-
-                //#if !DEBUG
-                //                var isUnderConstruction = e.Current.Id switch
-                //                {
-                //                    PreferenceButton.BindPhoneNumber or
-                //                    PreferenceButton.ChangePhoneNumber or PreferenceButton.UserProfile => true,
-                //                    _ => false,
-                //                };
-                //                if (isUnderConstruction)
-                //                {
-                //                    MainApplication.ShowUnderConstructionTips();
-                //                    return;
-                //                }
-                //#endif
-
-#if __XAMARIN_FORMS__
-                var route = e.Current.Id switch
-                {
-                    PreferenceButton.Settings => AppShell.IsUseBottomNav ?
-                        "//MyPage/SettingsPage" : "//SettingsPage",
-                    PreferenceButton.About => AppShell.IsUseBottomNav ?
-                        "//MyPage/AboutPage" : "//AboutPage",
-                    _ => null,
-                };
-
-                if (route != null)
-                {
-                    XFShell.Current.GoToAsync(route);
-                    return;
-                }
-#endif
-
                 switch (e.Current.Id)
                 {
-                    case PreferenceButton.UserProfile:
-                        this.StartActivity<UserProfileActivity>();
-                        break;
-                    case PreferenceButton.BindPhoneNumber:
-                    case PreferenceButton.ChangePhoneNumber:
-                        UserProfileActivity.StartActivity(RequireActivity(),
-                            UserProfileWindowViewModel.SubPageType.ChangeOrBindPhoneNumber);
-                        break;
                     case PreferenceButton.Settings:
                         this.StartActivity<SettingsActivity>();
                         break;
                     case PreferenceButton.About:
                         this.StartActivity<AboutActivity>();
                         break;
-                    case PreferenceButton.SignOut:
-                        UserService.Current.SignOut();
-                        break;
                 }
             };
             binding.rvPreferenceButtons.SetLinearLayoutManager();
             binding.rvPreferenceButtons.AddVerticalGroupItemDecoration(binding.rvPreferenceButtons.PaddingTop);
             binding.rvPreferenceButtons.SetAdapter(adapter);
-        }
-
-        protected override bool OnClick(View view)
-        {
-            if (view.Id == Resource.Id.layoutUser)
-            {
-                //#if !DEBUG
-                //                MainApplication.ShowUnderConstructionTips();
-                //#else
-                if (UserService.Current.IsAuthenticated)
-                {
-                    this.StartActivity<UserProfileActivity>();
-                }
-                else
-                {
-                    this.StartActivity<LoginOrRegisterActivity>();
-                }
-                //#endif
-                return true;
-            }
-            //else if (view.Id == Resource.Id.???)
-            //{
-            //}
-
-            return base.OnClick(view);
         }
     }
 }
