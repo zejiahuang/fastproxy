@@ -23,15 +23,13 @@
     <AotAssemblies>false</AotAssemblies>
     <EnableLLVM>false</EnableLLVM>
     <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
-    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+    <!-- 必须保持 None: 本项目启动链路依赖 NLog / ReactiveUI / DynamicData / DI 的反射,
+         开启 SdkOnly 或 Full 裁剪会裁掉这些反射引用的类型, 导致启动即崩且 NLog 无法初始化(无日志落盘) -->
+    <AndroidLinkMode>None</AndroidLinkMode>
     <AndroidLinkTool>r8</AndroidLinkTool>
     <PublishTrimmed>false</PublishTrimmed>
     <!-- 压缩 dll 到 assemblies blob, 减小安装包体积 -->
     <AndroidEnableAssemblyCompression>true</AndroidEnableAssemblyCompression>
-    <!-- 去掉调试符号, 不打包 Mono 调试运行时 -->
-    <DebugSymbols>false</DebugSymbols>
-    <DebugType>none</DebugType>
-    <AndroidIncludeDebugSymbols>false</AndroidIncludeDebugSymbols>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
     <AndroidFragmentType>AndroidX.Fragment.App.Fragment</AndroidFragmentType>
     <AndroidEnableMarshalMethods>false</AndroidEnableMarshalMethods>
