@@ -63,7 +63,7 @@ public sealed partial class ProxySettings : SettingsHost2<ProxySettings>
     /// 代理时使用的解析主DNS
     /// </summary>
     public static SerializableProperty<string?> ProxyMasterDns { get; }
-        = GetProperty<string?>(defaultValue: "223.5.5.5", autoSave: false);
+        = GetProperty<string?>(defaultValue: "223.5.5.5");
 
     /// <summary>
     /// 启用 Http 链接转发到 Https

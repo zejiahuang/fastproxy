@@ -103,8 +103,14 @@ namespace System.Application.UI.Adapters
         {
             base.OnBind();
 
-            var imageUrl = ImageUrlHelper.GetImageApiUrlById(ViewModel!.ImageId);
-            binding.ivImage.SetImageSource(imageUrl, Resource.Dimension.accelerate_project_group_img_size);
+            var imageUrl = ViewModel!.IconUrl;
+            if (string.IsNullOrWhiteSpace(imageUrl))
+                binding.ivImage.Visibility = ViewStates.Gone;
+            else
+            {
+                binding.ivImage.Visibility = ViewStates.Visible;
+                binding.ivImage.SetImageSourceSvg(imageUrl, Resource.Dimension.accelerate_project_group_img_size);
+            }
             binding.tvName.Text = ViewModel.Name;
             ViewModel.WhenAnyValue(x => x.ThreeStateEnable)
                 .Subscribe(value =>

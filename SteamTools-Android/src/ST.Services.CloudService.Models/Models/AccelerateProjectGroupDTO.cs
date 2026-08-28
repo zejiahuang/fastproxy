@@ -178,5 +178,13 @@ namespace System.Application.Models
         [N_JsonProperty("4")]
         [S_JsonProperty("4")]
         public int Order { get; set; }
+
+        /// <summary>
+        /// 第三方分组图标绝对 URL（如 https://abhuang.dpdns.org/icon/&lt;group&gt;）
+        /// </summary>
+        [MPKey(5)]
+        [N_JsonProperty("5")]
+        [S_JsonProperty("5")]
+        public string? IconUrl { get; set; }
     }
 }

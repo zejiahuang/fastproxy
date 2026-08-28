@@ -66,13 +66,7 @@ namespace System.Application.UI.Adapters
                 return;
             }
             binding.ivIcon.Visibility = ViewStates.Visible;
-            try
-            {
-                binding.ivIcon.SetImageSource(iconUrl, Resource.Dimension.accelerate_project_group_img_size);
-            }
-            catch
-            {
-            }
+            binding.ivIcon.SetImageSourceSvg(iconUrl, Resource.Dimension.accelerate_project_group_img_size);
         }
     }
 }

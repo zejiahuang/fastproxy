@@ -6,6 +6,7 @@ using AndroidX.RecyclerView.Widget;
 using AndroidX.SwipeRefreshLayout.Widget;
 using Binding;
 using ReactiveUI;
+using System.Application.Models;
 using System.Application.Services;
 using System.Application.Services.Native;
 using System.Application.Settings;
@@ -54,10 +55,11 @@ namespace System.Application.UI.Fragments
             void SetProxyModeText()
             {
                 var proxyMode = ProxySettings.ProxyModeValue;
+                var logDir = Path.Combine(IOPath.CacheDirectory, IApplication.LogDirName);
                 binding!.tvProxyMode.Text = proxyMode switch
                 {
-                    ProxyMode.ProxyOnly => $"{AppResources.CommunityFix_ProxyMode}：{ProxySettings.ToStringByProxyMode(proxyMode)}{Environment.NewLine}IPEndPoint: {proxyS.ProxyIp}:{proxyS.ProxyPort}",
-                    _ => $"{AppResources.CommunityFix_ProxyMode}：{ProxySettings.ToStringByProxyMode(proxyMode)}",
+                    ProxyMode.ProxyOnly => $"{AppResources.CommunityFix_ProxyMode}：{ProxySettings.ToStringByProxyMode(proxyMode)}{Environment.NewLine}IPEndPoint: {proxyS.ProxyIp}:{proxyS.ProxyPort}{Environment.NewLine}日志目录：{logDir}",
+                    _ => $"{AppResources.CommunityFix_ProxyMode}：{ProxySettings.ToStringByProxyMode(proxyMode)}{Environment.NewLine}日志目录：{logDir}",
                 };
             }
 
@@ -86,15 +88,17 @@ namespace System.Application.UI.Fragments
                 {
                     SetProxyModeText();
                     StringBuilder s = new();
-                    var enableProxyDomains = proxyS.GetEnableProxyDomains();
-                    var enableNames = enableProxyDomains?.Select(x => x.Name) ?? Enumerable.Empty<string>();
+                    var enableProxyDomains = proxyS.GetEnableProxyDomains()?.ToArray() ?? Array.Empty<AccelerateProjectDTO>();
+                    var enableNames = enableProxyDomains.Select(x => x.Name);
                     Log.Info("CommunityProxy", "StartProxy EnableDomains[" + enableNames.Count() + "]: " + string.Join(" | ", enableNames));
-                    if (enableProxyDomains != null)
+                    s.AppendLine($"{AppResources.CommunityFix_AccelerationsEnable}（{enableNames.Count()} 项）");
+                    foreach (var item in enableProxyDomains)
                     {
-                        foreach (var item in enableProxyDomains)
-                        {
-                            s.AppendLine(item.Name);
-                        }
+                        var domains = item.DomainNamesArray;
+                        var domainStr = domains != null && domains.Length > 0 ? string.Join(", ", domains) : string.Empty;
+                        s.AppendLine(string.IsNullOrWhiteSpace(domainStr)
+                            ? $"  {item.Name} :{item.PortId}"
+                            : $"  {item.Name} :{item.PortId}  {domainStr}");
                     }
                     binding.tvAccelerationsEnableContent.Text = s.ToString();
                     if (proxyS.IsEnableScript)

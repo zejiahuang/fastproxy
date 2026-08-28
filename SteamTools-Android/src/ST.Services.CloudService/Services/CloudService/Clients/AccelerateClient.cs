@@ -112,6 +112,7 @@ namespace System.Application.Services.CloudService.Clients
                     Name = string.IsNullOrWhiteSpace(g.GroupZh) ? g.Group : g.GroupZh,
                     Items = items,
                     ImageId = CreateStableId(g.Group ?? g.GroupZh ?? string.Empty),
+                    IconUrl = BuildGroupIconUrl(g),
                     Order = groups.Count,
                 });
             }
@@ -122,6 +123,16 @@ namespace System.Application.Services.CloudService.Clients
         {
             if (ushort.TryParse(port, out var p) && p > 0) return p;
             return 443;
+        }
+
+        /// <summary>
+        /// 构建分组图标 URL（优先分组自带 URL，否则用 /icon/&lt;group&gt;）
+        /// </summary>
+        static string? BuildGroupIconUrl(FastProxyGroup g)
+        {
+            if (!string.IsNullOrWhiteSpace(g.IconUrl)) return g.IconUrl;
+            if (string.IsNullOrWhiteSpace(g.Group)) return null;
+            return $"https://abhuang.dpdns.org/icon/{Uri.EscapeDataString(g.Group)}";
         }
 
         /// <summary>
