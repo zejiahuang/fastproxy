@@ -236,44 +236,11 @@
     </AndroidBoundLayout>
     <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_proxy_settings.xml">
       <Link>Resources\layout\activity_proxy_settings.xml</Link>
-    </AndroidBoundLayout>
-            <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_tablayout_viewpager2.xml">
-      <Link>Resources\layout\activity_tablayout_viewpager2.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_textblock.xml">
+    </AndroidBoundLayout>    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_textblock.xml">
       <Link>Resources\layout\activity_textblock.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\activity_toolbar_tablayout_viewpager2.xml">
-      <Link>Resources\layout\activity_toolbar_tablayout_viewpager2.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\fragment_about.xml">
+    </AndroidBoundLayout>    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\fragment_about.xml">
       <Link>Resources\layout\fragment_about.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\fragment_account_binding.xml">
-      <Link>Resources\layout\fragment_account_binding.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\fragment_account_binding_content.xml">
-      <Link>Resources\layout\fragment_account_binding_content.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\fragment_basic_profile.xml">
-      <Link>Resources\layout\fragment_basic_profile.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\fragment_basic_profile_content.xml">
-      <Link>Resources\layout\fragment_basic_profile_content.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\fragment_bind_phone_number.xml">
-      <Link>Resources\layout\fragment_bind_phone_number.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\fragment_bind_phone_number_content.xml">
-      <Link>Resources\layout\fragment_bind_phone_number_content.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\fragment_change_bind_phone_number.xml">
-      <Link>Resources\layout\fragment_change_bind_phone_number.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\fragment_change_bind_phone_number_content.xml">
-      <Link>Resources\layout\fragment_change_bind_phone_number_content.xml</Link>
-    </AndroidBoundLayout>
-    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\fragment_community_fix.xml">
+    </AndroidBoundLayout>    <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\fragment_community_fix.xml">
       <Link>Resources\layout\fragment_community_fix.xml</Link>
     </AndroidBoundLayout>
     <AndroidBoundLayout Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\layout\fragment_community_fix_content_ready.xml">

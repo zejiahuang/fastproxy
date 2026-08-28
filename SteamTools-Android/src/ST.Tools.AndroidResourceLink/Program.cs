@@ -13,7 +13,6 @@ var ignoreArray = new[]
 var ignoreBoundLayoutArray = new[]
 {
     @"layout\activity_guide_ca_cert.xml",
-    @"layout\activity_toolbar_webview.xml",
 };
 
 const string Mark = "<!--ST.Tools.AndroidResourceLink-->";
