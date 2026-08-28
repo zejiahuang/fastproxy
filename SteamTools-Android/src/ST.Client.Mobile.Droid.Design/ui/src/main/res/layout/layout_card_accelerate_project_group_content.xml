@@ -39,7 +39,7 @@
     android:layout_weight="1"
     android:textAllCaps="false"
     android:textAppearance="?attr/textAppearanceHeadline6"
-    android:textColor="@color/text_primary"
+    android:textColor="?attr/colorOnSurface"
     android:textSize="20sp"
     tools:text="一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十"
     xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />

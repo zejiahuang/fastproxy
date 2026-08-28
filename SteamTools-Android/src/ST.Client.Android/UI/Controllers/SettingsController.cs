@@ -186,6 +186,7 @@ namespace System.Application.UI.Controllers
                 {
                     UISettings.ThemeColor.Value = ThemeColorValues[index];
                     SetThemeColorText();
+                    RestartActivityForThemeChange();
                 }
             }, binding.layoutUISettingsThemeColor));
 

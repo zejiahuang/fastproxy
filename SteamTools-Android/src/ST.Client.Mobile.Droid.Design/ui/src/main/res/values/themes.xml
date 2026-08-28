@@ -116,12 +116,12 @@
   <!-- MD3 Navigation Bar (Bottom Navigation) Style -->
   <style name="MainTheme2.NavigationBar" parent="Widget.Material3.BottomNavigationView">
     <item name="itemActiveIndicatorStyle">@style/MainTheme2.NavigationBar.ActiveIndicator</item>
-    <item name="itemRippleColor">@color/md3_primary_container</item>
+    <item name="itemRippleColor">?attr/colorPrimaryContainer</item>
     <item name="labelVisibilityMode">labeled</item>
   </style>
 
   <style name="MainTheme2.NavigationBar.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
-    <item name="android:color">@color/md3_primary_container</item>
+    <item name="android:color">?attr/colorPrimaryContainer</item>
   </style>
 
   <!-- MD3 Card Style -->
