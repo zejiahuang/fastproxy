@@ -2616,6 +2616,95 @@ Il sistema verrà {1} dopo {0} secondi.</value>
     <value>Impostazioni di sistema</value>
     <comment>Comment=;Author=MicrosoftTranslator</comment>
   </data>
+  <data name="Settings_Proxy" xml:space="preserve">
+    <value>Impostazioni proxy</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_SpeedTest" xml:space="preserve">
+    <value>Test di latenza multi-IP</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_SpeedTest_Desc" xml:space="preserve">
+    <value>Testa gli IP candidati in parallelo e seleziona il più veloce</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_Log" xml:space="preserve">
+    <value>Log di runtime del proxy</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_Log_Desc" xml:space="preserve">
+    <value>Salva i log diagnostici del proxy in file locali</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_SpeedTest_Timeout" xml:space="preserve">
+    <value>Timeout test</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_SpeedTest_TTL" xml:space="preserve">
+    <value>Cache risultati</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_SpeedTest_WriteBack" xml:space="preserve">
+    <value>Scrivi IP migliore</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_SpeedTest_WriteBack_Desc" xml:space="preserve">
+    <value>Scrivi l'IP più veloce selezionato</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_ProgramStartupRunProxy" xml:space="preserve">
+    <value>Avvia proxy all'avvio</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_ProgramStartupRunProxy_Desc" xml:space="preserve">
+    <value>Ripristina lo stato proxy all'avvio</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_HttpToHttps" xml:space="preserve">
+    <value>Inoltra HTTP a HTTPS</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_HttpToHttps_Desc" xml:space="preserve">
+    <value>Aggiorna HTTP a HTTPS cifrato</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_MasterDns" xml:space="preserve">
+    <value>DNS primario proxy</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+
+  <data name="Settings_Appearance" xml:space="preserve">
+    <value>Aspetto</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Appearance_DynamicColor" xml:space="preserve">
+    <value>Colore dinamico</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Appearance_DynamicColor_Desc" xml:space="preserve">
+    <value>Genera il colore del tema dallo sfondo (Android 12+)</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Appearance_FloatingBar" xml:space="preserve">
+    <value>Barra inferiore flottante</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Appearance_FloatingBar_Desc" xml:space="preserve">
+    <value>Usa una barra di navigazione inferiore fluttuante a capsula</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Appearance_Blur" xml:space="preserve">
+    <value>Effetto sfocatura</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Appearance_Blur_Desc" xml:space="preserve">
+    <value>Abilita l'effetto di sfocatura per l'interfaccia</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Appearance_ThemeColor" xml:space="preserve">
+    <value>Colore del tema</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
   <data name="CommunityFix_CertificateExport" xml:space="preserve">
     <value>Esportare il file del certificato</value>
     <comment>Comment=;Author=MicrosoftTranslator</comment>

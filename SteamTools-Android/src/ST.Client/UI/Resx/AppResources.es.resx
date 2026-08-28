@@ -2616,6 +2616,95 @@ El sistema se {1} después de {0} segundos.</value>
     <value>Configuración del sistema</value>
     <comment>Comment=;Author=MicrosoftTranslator</comment>
   </data>
+  <data name="Settings_Proxy" xml:space="preserve">
+    <value>Ajustes de proxy</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_SpeedTest" xml:space="preserve">
+    <value>Prueba de latencia multi-IP</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_SpeedTest_Desc" xml:space="preserve">
+    <value>Probar IPs candidatos en paralelo y seleccionar el más rápido</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_Log" xml:space="preserve">
+    <value>Registro de proxy en tiempo de ejecución</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_Log_Desc" xml:space="preserve">
+    <value>Guardar registros de diagnóstico del proxy en archivos locales</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_SpeedTest_Timeout" xml:space="preserve">
+    <value>Tiempo de prueba</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_SpeedTest_TTL" xml:space="preserve">
+    <value>Caché de resultados</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_SpeedTest_WriteBack" xml:space="preserve">
+    <value>Volver a escribir IP</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_SpeedTest_WriteBack_Desc" xml:space="preserve">
+    <value>Escribir la IP más rápida seleccionada</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_ProgramStartupRunProxy" xml:space="preserve">
+    <value>Iniciar proxy automáticamente</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_ProgramStartupRunProxy_Desc" xml:space="preserve">
+    <value>Restaurar el estado del proxy al iniciar</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_HttpToHttps" xml:space="preserve">
+    <value>Reenviar HTTP a HTTPS</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_HttpToHttps_Desc" xml:space="preserve">
+    <value>Actualizar HTTP a conexión HTTPS cifrada</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_MasterDns" xml:space="preserve">
+    <value>DNS principal de resolución</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+
+  <data name="Settings_Appearance" xml:space="preserve">
+    <value>Apariencia</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Appearance_DynamicColor" xml:space="preserve">
+    <value>Color dinámico</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Appearance_DynamicColor_Desc" xml:space="preserve">
+    <value>Generar color de tema desde el fondo de pantalla (Android 12+)</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Appearance_FloatingBar" xml:space="preserve">
+    <value>Barra inferior flotante</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Appearance_FloatingBar_Desc" xml:space="preserve">
+    <value>Usar barra de navegación inferior flotante tipo cápsula</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Appearance_Blur" xml:space="preserve">
+    <value>Efecto de desenfoque</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Appearance_Blur_Desc" xml:space="preserve">
+    <value>Habilitar efecto de desenfoque para la interfaz</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Appearance_ThemeColor" xml:space="preserve">
+    <value>Color del tema</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
   <data name="CommunityFix_CertificateExport" xml:space="preserve">
     <value>Exportar el archivo de certificado</value>
     <comment>Comment=;Author=MicrosoftTranslator</comment>

@@ -48,12 +48,31 @@ namespace System.Application.UI.Adapters
 
             binding.tvName.Text = ViewModel!.Name;
             binding.tvDomainName.Text = ViewModel.DomainNamesArray.FirstOrDefault();
+            LoadIcon();
             ViewModel.WhenAnyValue(x => x.Enable)
                 .SubscribeInMainThread(value =>
                 {
                     if (binding.checkbox.Checked != value)
                         binding.checkbox.Checked = value;
                 }).AddTo(this);
+        }
+
+        void LoadIcon()
+        {
+            var iconUrl = ViewModel!.IconUrl;
+            if (string.IsNullOrWhiteSpace(iconUrl))
+            {
+                binding.ivIcon.Visibility = ViewStates.Gone;
+                return;
+            }
+            binding.ivIcon.Visibility = ViewStates.Visible;
+            try
+            {
+                binding.ivIcon.SetImageSource(iconUrl, Resource.Dimension.accelerate_project_group_img_size);
+            }
+            catch
+            {
+            }
         }
     }
 }

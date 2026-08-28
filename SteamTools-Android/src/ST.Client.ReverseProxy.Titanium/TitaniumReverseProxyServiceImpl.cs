@@ -128,6 +128,44 @@ sealed class TitaniumReverseProxyServiceImpl : ReverseProxyServiceImpl, IReverse
         return ip;
     }
 
+    /// <summary>
+    /// 解析加速条目的上游 IP：优先多 IP 并行延迟测速选优，失败时回退默认解析。
+    /// </summary>
+    async Task<IPAddress?> ResolveUpstreamIp(AccelerateProjectDTO item, string source)
+    {
+        // 多 IP 测速选优（第三方数据源提供全部候选 IP）
+        if (Settings.ProxySettings.SpeedTestEnable.Value &&
+            item.ForwardIPs != null && item.ForwardIPs.Count > 0)
+        {
+            var best = await ILatencyTestService.Instance.SelectBestIpAsync(item);
+            if (best != null)
+            {
+                if (Settings.ProxySettings.SpeedTestWriteBack.Value)
+                {
+                    item.ForwardDomainIP = best.ToString();
+                }
+                Log.Info(CommunityProxyTAG, "{0} 测速选优 {1} -> {2} (候选 {3} 个)", source, item.Name, best, item.ForwardIPs.Count);
+                return best;
+            }
+            Log.Warn(CommunityProxyTAG, "{0} 测速全部失败，回退默认解析：{1}", source, item.Name);
+        }
+
+        var addres = item.ForwardDomainIsNameOrIP ? item.ForwardDomainName : item.ForwardDomainIP;
+        if (string.IsNullOrEmpty(addres))
+        {
+            Log.Warn(CommunityProxyTAG, "{0} 无可用上游地址：{1}", source, item.Name);
+            return null;
+        }
+        var ip = await GetReverseProxyIp(addres, ProxyDNS, item.ForwardDomainIsNameOrIP);
+        Log.Info(CommunityProxyTAG, "{0} 默认解析 {1} {2} -> {3}", source, item.Name, addres, ip);
+        return ip;
+    }
+
+    /// <summary>
+    /// 加速链路诊断日志 tag
+    /// </summary>
+    const string CommunityProxyTAG = "CommunityProxy";
+
     async Task OnRequest(object sender, SessionEventArgs e)
     {
 #if DEBUG
@@ -196,11 +234,11 @@ sealed class TitaniumReverseProxyServiceImpl : ReverseProxyServiceImpl, IReverse
 
                     if (e.HttpClient.UpStreamEndPoint == null)
                     {
-                        var addres = item.ForwardDomainIsNameOrIP ? item.ForwardDomainName : item.ForwardDomainIP;
-                        var ip = await GetReverseProxyIp(addres, ProxyDNS, item.ForwardDomainIsNameOrIP);
+                        var ip = await ResolveUpstreamIp(item, "OnRequest");
                         if (ip == null || IPAddress.IsLoopback(ip) || ip.Equals(IPAddress.Any))
                             goto exit;
                         e.HttpClient.UpStreamEndPoint = new IPEndPoint(ip, item.PortId);
+                        Log.Info(CommunityProxyTAG, "OnRequest 命中 {0} -> {1}:{2}", item.Name, ip, item.PortId);
                     }
 
                     if (!string.IsNullOrEmpty(item.UserAgent))
@@ -328,6 +366,13 @@ sealed class TitaniumReverseProxyServiceImpl : ReverseProxyServiceImpl, IReverse
     protected override async Task<bool> StartProxyImpl()
     {
         #region 启动代理
+
+        // 放开日志阈值，使加速链路诊断日志持续写入本地文件
+        if (Settings.GeneralSettings.ProxyLogEnable.Value)
+        {
+            try { UI.IApplication.TrySetLoggerMinLevel(Microsoft.Extensions.Logging.LogLevel.Information); }
+            catch { }
+        }
 
         proxyServer.BeforeRequest += OnRequest;
         proxyServer.BeforeResponse += OnResponse;
@@ -462,6 +507,11 @@ sealed class TitaniumReverseProxyServiceImpl : ReverseProxyServiceImpl, IReverse
                         {
                             e.ForwardHttpsHostName = serverName;
                             e.ForwardHttpsPort = item.PortId;
+                            Log.Info(CommunityProxyTAG, "SNI 透传 {0} -> {1}:{2}", item.Name, serverName, item.PortId);
+                        }
+                        else
+                        {
+                            Log.Info(CommunityProxyTAG, "SNI 命中但无有效 ServerName，直连透传：{0}", item.Name);
                         }
                         return Task.CompletedTask;
                     }
@@ -499,11 +549,11 @@ sealed class TitaniumReverseProxyServiceImpl : ReverseProxyServiceImpl, IReverse
                     if (item.ProxyType == ProxyType.Local ||
                         item.ProxyType == ProxyType.ServerAccelerate)
                     {
-                        var addres = item.ForwardDomainIsNameOrIP ? item.ForwardDomainName : item.ForwardDomainIP;
-                        var ip = await GetReverseProxyIp(addres, ProxyDNS, item.ForwardDomainIsNameOrIP);
+                        var ip = await ResolveUpstreamIp(item, "TunnelConnect");
                         if (ip != null && !IPAddress.IsLoopback(ip) && !ip.Equals(IPAddress.Any))
                         {
                             e.HttpClient.UpStreamEndPoint = new IPEndPoint(ip, item.PortId);
+                            Log.Info(CommunityProxyTAG, "TunnelConnect 命中 {0} -> {1}:{2}", item.Name, ip, item.PortId);
                         }
                     }
                     return;

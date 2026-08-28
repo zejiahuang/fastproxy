@@ -13,6 +13,7 @@ public static partial class ServiceCollectionExtensions
     /// <returns></returns>
     public static IServiceCollection AddReverseProxyService(this IServiceCollection services)
     {
+        services.AddSingleton<ILatencyTestService, LatencyTestServiceImpl>();
         services.AddSingleton<IReverseProxyService, TitaniumReverseProxyServiceImpl>();
         return services;
     }

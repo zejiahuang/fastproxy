@@ -31,6 +31,15 @@
       tools:text=""
       xamarin:managedType="Google.Android.Material.CheckBox.MaterialCheckBox" />
 
+    <androidx.appcompat.widget.AppCompatImageView
+      android:id="@+id/ivIcon"
+      android:layout_width="@dimen/settings_ui_icon_size"
+      android:layout_height="@dimen/settings_ui_icon_size"
+      android:layout_gravity="center_vertical"
+      android:layout_marginStart="@dimen/activity_horizontal_margin"
+      android:importantForAccessibility="no"
+      xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatImageView" />
+
     <androidx.appcompat.widget.AppCompatTextView
       android:id="@+id/tvName"
       android:layout_width="0dp"

@@ -2617,6 +2617,95 @@ AAAAA-BBBBB-CCCC3</value>
     <value>系統設置</value>
     <comment>Comment=;Author=MicrosoftTranslator</comment>
   </data>
+  <data name="Settings_Proxy" xml:space="preserve">
+    <value>代理設定</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_SpeedTest" xml:space="preserve">
+    <value>多 IP 測速選優</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_SpeedTest_Desc" xml:space="preserve">
+    <value>對加速節點候選 IP 並行延遲測速，自動選擇最快 IP</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_Log" xml:space="preserve">
+    <value>代理運行時日誌</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_Log_Desc" xml:space="preserve">
+    <value>將加速鏈路診斷日誌持續寫入本地日誌文件</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_SpeedTest_Timeout" xml:space="preserve">
+    <value>測速逾時</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_SpeedTest_TTL" xml:space="preserve">
+    <value>測速結果快取</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_SpeedTest_WriteBack" xml:space="preserve">
+    <value>測速後寫回最佳 IP</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_SpeedTest_WriteBack_Desc" xml:space="preserve">
+    <value>將本次選出的最快 IP 寫入加速條目配置</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_ProgramStartupRunProxy" xml:space="preserve">
+    <value>啟動時自動開啟代理</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_ProgramStartupRunProxy_Desc" xml:space="preserve">
+    <value>啟動後自動恢復上次的代理狀態</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_HttpToHttps" xml:space="preserve">
+    <value>HTTP 轉發到 HTTPS</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_HttpToHttps_Desc" xml:space="preserve">
+    <value>將 HTTP 請求自動升級為 HTTPS 加密連接</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_MasterDns" xml:space="preserve">
+    <value>代理解析主 DNS</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+
+  <data name="Settings_Appearance" xml:space="preserve">
+    <value>外觀設定</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Appearance_DynamicColor" xml:space="preserve">
+    <value>動態取色</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Appearance_DynamicColor_Desc" xml:space="preserve">
+    <value>根據桌布自動生成主題色（Android 12+）</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Appearance_FloatingBar" xml:space="preserve">
+    <value>懸浮底欄</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Appearance_FloatingBar_Desc" xml:space="preserve">
+    <value>使用懸浮膠囊樣式的底部導航欄</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Appearance_Blur" xml:space="preserve">
+    <value>模糊效果</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Appearance_Blur_Desc" xml:space="preserve">
+    <value>為介面啟用模糊效果</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Appearance_ThemeColor" xml:space="preserve">
+    <value>主題色</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
   <data name="CommunityFix_CertificateExport" xml:space="preserve">
     <value>匯出證書檔</value>
     <comment>Comment=;Author=MicrosoftTranslator</comment>

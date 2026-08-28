@@ -20,6 +20,7 @@
     </Compile>
     <Compile Include="..\ST.Client.ReverseProxy\Services\Implementation\ReverseProxyServiceImpl.cs" />
     <Compile Include="..\ST.Client.ReverseProxy\Services\Implementation\CertificateManagerImpl.cs" />
+    <Compile Include="..\ST.Client.ReverseProxy\Services\Implementation\LatencyTestServiceImpl.cs" />
   </ItemGroup>
 
   <ItemGroup>

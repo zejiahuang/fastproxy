@@ -160,6 +160,321 @@
       </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
+    <!-- Appearance Settings Section -->
+    <com.google.android.material.card.MaterialCardView
+      style="@style/MainTheme2.Card"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+      android:layout_marginBottom="@dimen/md3_spacing_small"
+      app:contentPadding="0dp">
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+          android:id="@+id/tvAppearanceSettings"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="@dimen/activity_horizontal_margin"
+          android:layout_marginTop="@dimen/md3_spacing_large"
+          android:layout_marginBottom="@dimen/md3_spacing_small"
+          android:textAppearance="?attr/textAppearanceTitleSmall"
+          android:textColor="?attr/colorPrimary"
+          tools:text="外观设置"
+          xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
+
+        <FrameLayout
+          android:id="@+id/layoutRootUISettingsDynamicColor"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="?attr/colorSurface"
+          android:clickable="true"
+          android:focusable="true"
+          android:foreground="?android:attr/selectableItemBackground"
+          android:minHeight="@dimen/preference_button_height_large">
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="@dimen/preference_button_height_large"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+              android:layout_width="@dimen/settings_ui_icon_size"
+              android:layout_height="@dimen/settings_ui_icon_size"
+              android:layout_gravity="center_vertical"
+              android:layout_marginStart="@dimen/activity_horizontal_margin"
+              android:layout_marginEnd="@dimen/activity_horizontal_margin"
+              app:srcCompat="@drawable/baseline_dark_mode_black_24"
+              app:tint="@color/icon_background"
+              xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatImageView" />
+
+            <LinearLayout
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:gravity="center_vertical"
+              android:minHeight="@dimen/preference_button_height_large"
+              android:orientation="vertical">
+
+              <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvUISettingsDynamicColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxWidth="@dimen/settings_ui_item_switch_title_width_with_icon"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textColor="?attr/colorOnSurface"
+                tools:text="动态取色"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
+
+              <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvUISettingsDynamicColorDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxWidth="@dimen/settings_ui_item_switch_title_width_with_icon"
+                android:textAppearance="?attr/textAppearanceBodySmall"
+                android:textColor="?attr/colorOnSurfaceVariant"
+                tools:text="根据壁纸自动生成主题色（Android 12+）"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
+            </LinearLayout>
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+              android:id="@+id/swUISettingsDynamicColor"
+              style="@style/MainTheme2.Switch"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_vertical"
+              android:layout_marginEnd="@dimen/activity_horizontal_margin"
+              android:background="@null"
+              android:clickable="false"
+              android:focusable="false"
+              xamarin:managedType="Google.Android.Material.SwitchMaterial.SwitchMaterial" />
+          </LinearLayout>
+        </FrameLayout>
+
+        <View
+          android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:layout_marginStart="@dimen/settings_ui_subtitle_margin_start"
+          android:background="?attr/colorOutlineVariant" />
+
+        <FrameLayout
+          android:id="@+id/layoutRootUISettingsFloatingBar"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="?attr/colorSurface"
+          android:clickable="true"
+          android:focusable="true"
+          android:foreground="?android:attr/selectableItemBackground"
+          android:minHeight="@dimen/preference_button_height_large">
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="@dimen/preference_button_height_large"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+              android:layout_width="@dimen/settings_ui_icon_size"
+              android:layout_height="@dimen/settings_ui_icon_size"
+              android:layout_gravity="center_vertical"
+              android:layout_marginStart="@dimen/activity_horizontal_margin"
+              android:layout_marginEnd="@dimen/activity_horizontal_margin"
+              app:srcCompat="@drawable/baseline_more_horiz_black_24"
+              app:tint="@color/icon_background"
+              xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatImageView" />
+
+            <LinearLayout
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:gravity="center_vertical"
+              android:minHeight="@dimen/preference_button_height_large"
+              android:orientation="vertical">
+
+              <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvUISettingsFloatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxWidth="@dimen/settings_ui_item_switch_title_width_with_icon"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textColor="?attr/colorOnSurface"
+                tools:text="悬浮底栏"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
+
+              <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvUISettingsFloatingBarDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxWidth="@dimen/settings_ui_item_switch_title_width_with_icon"
+                android:textAppearance="?attr/textAppearanceBodySmall"
+                android:textColor="?attr/colorOnSurfaceVariant"
+                tools:text="使用悬浮胶囊样式的底部导航栏"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
+            </LinearLayout>
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+              android:id="@+id/swUISettingsFloatingBar"
+              style="@style/MainTheme2.Switch"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_vertical"
+              android:layout_marginEnd="@dimen/activity_horizontal_margin"
+              android:background="@null"
+              android:clickable="false"
+              android:focusable="false"
+              xamarin:managedType="Google.Android.Material.SwitchMaterial.SwitchMaterial" />
+          </LinearLayout>
+        </FrameLayout>
+
+        <View
+          android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:layout_marginStart="@dimen/settings_ui_subtitle_margin_start"
+          android:background="?attr/colorOutlineVariant" />
+
+        <FrameLayout
+          android:id="@+id/layoutRootUISettingsBlur"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="?attr/colorSurface"
+          android:clickable="true"
+          android:focusable="true"
+          android:foreground="?android:attr/selectableItemBackground"
+          android:minHeight="@dimen/preference_button_height_large">
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="@dimen/preference_button_height_large"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+              android:layout_width="@dimen/settings_ui_icon_size"
+              android:layout_height="@dimen/settings_ui_icon_size"
+              android:layout_gravity="center_vertical"
+              android:layout_marginStart="@dimen/activity_horizontal_margin"
+              android:layout_marginEnd="@dimen/activity_horizontal_margin"
+              app:srcCompat="@drawable/baseline_visibility_off_black_24"
+              app:tint="@color/icon_background"
+              xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatImageView" />
+
+            <LinearLayout
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:gravity="center_vertical"
+              android:minHeight="@dimen/preference_button_height_large"
+              android:orientation="vertical">
+
+              <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvUISettingsBlur"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxWidth="@dimen/settings_ui_item_switch_title_width_with_icon"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textColor="?attr/colorOnSurface"
+                tools:text="模糊效果"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
+
+              <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvUISettingsBlurDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxWidth="@dimen/settings_ui_item_switch_title_width_with_icon"
+                android:textAppearance="?attr/textAppearanceBodySmall"
+                android:textColor="?attr/colorOnSurfaceVariant"
+                tools:text="为界面启用模糊效果"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
+            </LinearLayout>
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+              android:id="@+id/swUISettingsBlur"
+              style="@style/MainTheme2.Switch"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_vertical"
+              android:layout_marginEnd="@dimen/activity_horizontal_margin"
+              android:background="@null"
+              android:clickable="false"
+              android:focusable="false"
+              xamarin:managedType="Google.Android.Material.SwitchMaterial.SwitchMaterial" />
+          </LinearLayout>
+        </FrameLayout>
+
+        <View
+          android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:layout_marginStart="@dimen/settings_ui_subtitle_margin_start"
+          android:background="?attr/colorOutlineVariant" />
+
+        <FrameLayout
+          android:id="@+id/layoutRootUISettingsThemeColor"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="?attr/colorSurface"
+          android:clickable="true"
+          android:focusable="true"
+          android:foreground="?android:attr/selectableItemBackground"
+          android:minHeight="@dimen/preference_button_height_large">
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="@dimen/preference_button_height_large"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+              android:layout_width="@dimen/settings_ui_icon_size"
+              android:layout_height="@dimen/settings_ui_icon_size"
+              android:layout_gravity="center_vertical"
+              android:layout_marginStart="@dimen/activity_horizontal_margin"
+              android:layout_marginEnd="@dimen/activity_horizontal_margin"
+              app:srcCompat="@drawable/baseline_settings_black_24"
+              app:tint="@color/icon_background"
+              xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatImageView" />
+
+            <LinearLayout
+              android:id="@+id/layoutUISettingsThemeColor"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:gravity="center_vertical"
+              android:minHeight="@dimen/preference_button_height_large"
+              android:orientation="vertical">
+
+              <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvUISettingsThemeColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textColor="?attr/colorOnSurface"
+                tools:text="主题色"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
+
+              <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvUISettingsThemeColorValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceBodySmall"
+                android:textColor="?attr/colorOnSurfaceVariant"
+                tools:text="默认"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
+            </LinearLayout>
+          </LinearLayout>
+        </FrameLayout>
+      </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
     <!-- General Settings Section -->
     <com.google.android.material.card.MaterialCardView
       style="@style/MainTheme2.Card"
@@ -455,6 +770,608 @@
                 tools:text="日志文件已占用 xx.xx KB"
                 xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
             </LinearLayout>
+          </LinearLayout>
+        </FrameLayout>
+      </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Proxy Settings Section -->
+    <com.google.android.material.card.MaterialCardView
+      style="@style/MainTheme2.Card"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+      android:layout_marginBottom="@dimen/md3_spacing_small"
+      app:contentPadding="0dp">
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+          android:id="@+id/tvProxySettings"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="@dimen/activity_horizontal_margin"
+          android:layout_marginTop="@dimen/md3_spacing_large"
+          android:layout_marginBottom="@dimen/md3_spacing_small"
+          android:textAppearance="?attr/textAppearanceTitleSmall"
+          android:textColor="?attr/colorPrimary"
+          tools:text="代理设置"
+          xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
+
+        <FrameLayout
+          android:id="@+id/layoutRootProxySettingsSpeedTest"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="?attr/colorSurface"
+          android:clickable="true"
+          android:focusable="true"
+          android:foreground="?android:attr/selectableItemBackground"
+          android:minHeight="@dimen/preference_button_height_large">
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="@dimen/preference_button_height_large"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+              android:layout_width="@dimen/settings_ui_icon_size"
+              android:layout_height="@dimen/settings_ui_icon_size"
+              android:layout_gravity="center_vertical"
+              android:layout_marginStart="@dimen/activity_horizontal_margin"
+              android:layout_marginEnd="@dimen/activity_horizontal_margin"
+              app:srcCompat="@drawable/mdi_rocket_black_24"
+              app:tint="@color/icon_background"
+              xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatImageView" />
+
+            <LinearLayout
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:gravity="center_vertical"
+              android:minHeight="@dimen/preference_button_height_large"
+              android:orientation="vertical">
+
+              <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvProxySettingsSpeedTest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxWidth="@dimen/settings_ui_item_switch_title_width_with_icon"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textColor="?attr/colorOnSurface"
+                tools:text="多 IP 测速选优"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
+
+              <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvProxySettingsSpeedTestDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxWidth="@dimen/settings_ui_item_switch_title_width_with_icon"
+                android:textAppearance="?attr/textAppearanceBodySmall"
+                android:textColor="?attr/colorOnSurfaceVariant"
+                tools:text="对加速节点候选 IP 并行延迟测速，自动选择最快 IP"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
+            </LinearLayout>
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+              android:id="@+id/swProxySettingsSpeedTest"
+              style="@style/MainTheme2.Switch"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_vertical"
+              android:layout_marginEnd="@dimen/activity_horizontal_margin"
+              android:background="@null"
+              android:clickable="false"
+              android:focusable="false"
+              xamarin:managedType="Google.Android.Material.SwitchMaterial.SwitchMaterial" />
+          </LinearLayout>
+        </FrameLayout>
+
+        <View
+          android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:layout_marginStart="@dimen/settings_ui_subtitle_margin_start"
+          android:background="?attr/colorOutlineVariant" />
+
+        <FrameLayout
+          android:id="@+id/layoutRootProxySettingsSpeedTestTimeout"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="?attr/colorSurface"
+          android:clickable="true"
+          android:focusable="true"
+          android:foreground="?android:attr/selectableItemBackground"
+          android:minHeight="@dimen/preference_button_height_large">
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="@dimen/preference_button_height_large"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+              android:layout_width="@dimen/settings_ui_icon_size"
+              android:layout_height="@dimen/settings_ui_icon_size"
+              android:layout_gravity="center_vertical"
+              android:layout_marginStart="@dimen/activity_horizontal_margin"
+              android:layout_marginEnd="@dimen/activity_horizontal_margin"
+              app:srcCompat="@drawable/baseline_location_on_black_24"
+              app:tint="@color/icon_background"
+              xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatImageView" />
+
+            <LinearLayout
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:gravity="center_vertical"
+              android:minHeight="@dimen/preference_button_height_large"
+              android:orientation="vertical">
+
+              <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvProxySettingsSpeedTestTimeout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxWidth="@dimen/settings_ui_item_switch_title_width_with_icon"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textColor="?attr/colorOnSurface"
+                tools:text="测速超时"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
+
+              <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvProxySettingsSpeedTestTimeoutValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxWidth="@dimen/settings_ui_item_switch_title_width_with_icon"
+                android:textAppearance="?attr/textAppearanceBodySmall"
+                android:textColor="?attr/colorPrimary"
+                tools:text="3000 ms"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
+            </LinearLayout>
+          </LinearLayout>
+        </FrameLayout>
+
+        <View
+          android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:layout_marginStart="@dimen/settings_ui_subtitle_margin_start"
+          android:background="?attr/colorOutlineVariant" />
+
+        <FrameLayout
+          android:id="@+id/layoutRootProxySettingsSpeedTestTTL"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="?attr/colorSurface"
+          android:clickable="true"
+          android:focusable="true"
+          android:foreground="?android:attr/selectableItemBackground"
+          android:minHeight="@dimen/preference_button_height_large">
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="@dimen/preference_button_height_large"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+              android:layout_width="@dimen/settings_ui_icon_size"
+              android:layout_height="@dimen/settings_ui_icon_size"
+              android:layout_gravity="center_vertical"
+              android:layout_marginStart="@dimen/activity_horizontal_margin"
+              android:layout_marginEnd="@dimen/activity_horizontal_margin"
+              app:srcCompat="@drawable/baseline_refresh_black_24"
+              app:tint="@color/icon_background"
+              xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatImageView" />
+
+            <LinearLayout
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:gravity="center_vertical"
+              android:minHeight="@dimen/preference_button_height_large"
+              android:orientation="vertical">
+
+              <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvProxySettingsSpeedTestTTL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxWidth="@dimen/settings_ui_item_switch_title_width_with_icon"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textColor="?attr/colorOnSurface"
+                tools:text="测速结果缓存"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
+
+              <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvProxySettingsSpeedTestTTLValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxWidth="@dimen/settings_ui_item_switch_title_width_with_icon"
+                android:textAppearance="?attr/textAppearanceBodySmall"
+                android:textColor="?attr/colorPrimary"
+                tools:text="10 分钟"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
+            </LinearLayout>
+          </LinearLayout>
+        </FrameLayout>
+
+        <View
+          android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:layout_marginStart="@dimen/settings_ui_subtitle_margin_start"
+          android:background="?attr/colorOutlineVariant" />
+
+        <FrameLayout
+          android:id="@+id/layoutRootProxySettingsSpeedTestWriteBack"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="?attr/colorSurface"
+          android:clickable="true"
+          android:focusable="true"
+          android:foreground="?android:attr/selectableItemBackground"
+          android:minHeight="@dimen/preference_button_height_large">
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="@dimen/preference_button_height_large"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+              android:layout_width="@dimen/settings_ui_icon_size"
+              android:layout_height="@dimen/settings_ui_icon_size"
+              android:layout_gravity="center_vertical"
+              android:layout_marginStart="@dimen/activity_horizontal_margin"
+              android:layout_marginEnd="@dimen/activity_horizontal_margin"
+              app:srcCompat="@drawable/baseline_check_circle"
+              app:tint="@color/icon_background"
+              xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatImageView" />
+
+            <LinearLayout
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:gravity="center_vertical"
+              android:minHeight="@dimen/preference_button_height_large"
+              android:orientation="vertical">
+
+              <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvProxySettingsSpeedTestWriteBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxWidth="@dimen/settings_ui_item_switch_title_width_with_icon"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textColor="?attr/colorOnSurface"
+                tools:text="测速后写回最优 IP"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
+
+              <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvProxySettingsSpeedTestWriteBackDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxWidth="@dimen/settings_ui_item_switch_title_width_with_icon"
+                android:textAppearance="?attr/textAppearanceBodySmall"
+                android:textColor="?attr/colorOnSurfaceVariant"
+                tools:text="将本次选出的最快 IP 写入加速条目配置"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
+            </LinearLayout>
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+              android:id="@+id/swProxySettingsSpeedTestWriteBack"
+              style="@style/MainTheme2.Switch"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_vertical"
+              android:layout_marginEnd="@dimen/activity_horizontal_margin"
+              android:background="@null"
+              android:clickable="false"
+              android:focusable="false"
+              xamarin:managedType="Google.Android.Material.SwitchMaterial.SwitchMaterial" />
+          </LinearLayout>
+        </FrameLayout>
+
+        <View
+          android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:layout_marginStart="@dimen/settings_ui_subtitle_margin_start"
+          android:background="?attr/colorOutlineVariant" />
+
+        <FrameLayout
+          android:id="@+id/layoutRootProxySettingsProgramStartupRunProxy"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="?attr/colorSurface"
+          android:clickable="true"
+          android:focusable="true"
+          android:foreground="?android:attr/selectableItemBackground"
+          android:minHeight="@dimen/preference_button_height_large">
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="@dimen/preference_button_height_large"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+              android:layout_width="@dimen/settings_ui_icon_size"
+              android:layout_height="@dimen/settings_ui_icon_size"
+              android:layout_gravity="center_vertical"
+              android:layout_marginStart="@dimen/activity_horizontal_margin"
+              android:layout_marginEnd="@dimen/activity_horizontal_margin"
+              app:srcCompat="@drawable/mdi_rocket_black_24"
+              app:tint="@color/icon_background"
+              xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatImageView" />
+
+            <LinearLayout
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:gravity="center_vertical"
+              android:minHeight="@dimen/preference_button_height_large"
+              android:orientation="vertical">
+
+              <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvProxySettingsProgramStartupRunProxy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxWidth="@dimen/settings_ui_item_switch_title_width_with_icon"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textColor="?attr/colorOnSurface"
+                tools:text="启动时自动开启代理"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
+
+              <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvProxySettingsProgramStartupRunProxyDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxWidth="@dimen/settings_ui_item_switch_title_width_with_icon"
+                android:textAppearance="?attr/textAppearanceBodySmall"
+                android:textColor="?attr/colorOnSurfaceVariant"
+                tools:text="应用启动后自动恢复上次的代理状态"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
+            </LinearLayout>
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+              android:id="@+id/swProxySettingsProgramStartupRunProxy"
+              style="@style/MainTheme2.Switch"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_vertical"
+              android:layout_marginEnd="@dimen/activity_horizontal_margin"
+              android:background="@null"
+              android:clickable="false"
+              android:focusable="false"
+              xamarin:managedType="Google.Android.Material.SwitchMaterial.SwitchMaterial" />
+          </LinearLayout>
+        </FrameLayout>
+
+        <View
+          android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:layout_marginStart="@dimen/settings_ui_subtitle_margin_start"
+          android:background="?attr/colorOutlineVariant" />
+
+        <FrameLayout
+          android:id="@+id/layoutRootProxySettingsHttpToHttps"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="?attr/colorSurface"
+          android:clickable="true"
+          android:focusable="true"
+          android:foreground="?android:attr/selectableItemBackground"
+          android:minHeight="@dimen/preference_button_height_large">
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="@dimen/preference_button_height_large"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+              android:layout_width="@dimen/settings_ui_icon_size"
+              android:layout_height="@dimen/settings_ui_icon_size"
+              android:layout_gravity="center_vertical"
+              android:layout_marginStart="@dimen/activity_horizontal_margin"
+              android:layout_marginEnd="@dimen/activity_horizontal_margin"
+              app:srcCompat="@drawable/baseline_enhanced_encryption_black_24"
+              app:tint="@color/icon_background"
+              xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatImageView" />
+
+            <LinearLayout
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:gravity="center_vertical"
+              android:minHeight="@dimen/preference_button_height_large"
+              android:orientation="vertical">
+
+              <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvProxySettingsHttpToHttps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxWidth="@dimen/settings_ui_item_switch_title_width_with_icon"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textColor="?attr/colorOnSurface"
+                tools:text="HTTP 转发到 HTTPS"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
+
+              <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvProxySettingsHttpToHttpsDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxWidth="@dimen/settings_ui_item_switch_title_width_with_icon"
+                android:textAppearance="?attr/textAppearanceBodySmall"
+                android:textColor="?attr/colorOnSurfaceVariant"
+                tools:text="将 HTTP 请求自动升级为 HTTPS 加密连接"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
+            </LinearLayout>
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+              android:id="@+id/swProxySettingsHttpToHttps"
+              style="@style/MainTheme2.Switch"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_vertical"
+              android:layout_marginEnd="@dimen/activity_horizontal_margin"
+              android:background="@null"
+              android:clickable="false"
+              android:focusable="false"
+              xamarin:managedType="Google.Android.Material.SwitchMaterial.SwitchMaterial" />
+          </LinearLayout>
+        </FrameLayout>
+
+        <View
+          android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:layout_marginStart="@dimen/settings_ui_subtitle_margin_start"
+          android:background="?attr/colorOutlineVariant" />
+
+        <FrameLayout
+          android:id="@+id/layoutRootProxySettingsMasterDns"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="?attr/colorSurface"
+          android:clickable="true"
+          android:focusable="true"
+          android:foreground="?android:attr/selectableItemBackground"
+          android:minHeight="@dimen/preference_button_height_large">
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="@dimen/preference_button_height_large"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+              android:layout_width="@dimen/settings_ui_icon_size"
+              android:layout_height="@dimen/settings_ui_icon_size"
+              android:layout_gravity="center_vertical"
+              android:layout_marginStart="@dimen/activity_horizontal_margin"
+              android:layout_marginEnd="@dimen/activity_horizontal_margin"
+              app:srcCompat="@drawable/baseline_language_black_24"
+              app:tint="@color/icon_background"
+              xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatImageView" />
+
+            <LinearLayout
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:gravity="center_vertical"
+              android:minHeight="@dimen/preference_button_height_large"
+              android:orientation="vertical">
+
+              <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvProxySettingsMasterDns"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxWidth="@dimen/settings_ui_item_switch_title_width_with_icon"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textColor="?attr/colorOnSurface"
+                tools:text="代理解析主 DNS"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
+
+              <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvProxySettingsMasterDnsValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxWidth="@dimen/settings_ui_item_switch_title_width_with_icon"
+                android:textAppearance="?attr/textAppearanceBodySmall"
+                android:textColor="?attr/colorPrimary"
+                tools:text="223.5.5.5"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
+            </LinearLayout>
+          </LinearLayout>
+        </FrameLayout>
+
+        <View
+          android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:layout_marginStart="@dimen/settings_ui_subtitle_margin_start"
+          android:background="?attr/colorOutlineVariant" />
+
+        <FrameLayout
+          android:id="@+id/layoutRootProxySettingsLog"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="?attr/colorSurface"
+          android:clickable="true"
+          android:focusable="true"
+          android:foreground="?android:attr/selectableItemBackground"
+          android:minHeight="@dimen/preference_button_height_large">
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="@dimen/preference_button_height_large"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+              android:layout_width="@dimen/settings_ui_icon_size"
+              android:layout_height="@dimen/settings_ui_icon_size"
+              android:layout_gravity="center_vertical"
+              android:layout_marginStart="@dimen/activity_horizontal_margin"
+              android:layout_marginEnd="@dimen/activity_horizontal_margin"
+              app:srcCompat="@drawable/baseline_description_black_24"
+              app:tint="@color/icon_background"
+              xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatImageView" />
+
+            <LinearLayout
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:gravity="center_vertical"
+              android:minHeight="@dimen/preference_button_height_large"
+              android:orientation="vertical">
+
+              <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvProxySettingsLog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxWidth="@dimen/settings_ui_item_switch_title_width_with_icon"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textColor="?attr/colorOnSurface"
+                tools:text="代理运行时日志"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
+
+              <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvProxySettingsLogDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxWidth="@dimen/settings_ui_item_switch_title_width_with_icon"
+                android:textAppearance="?attr/textAppearanceBodySmall"
+                android:textColor="?attr/colorOnSurfaceVariant"
+                tools:text="将加速链路诊断日志持续写入本地日志文件"
+                xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
+            </LinearLayout>
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+              android:id="@+id/swProxySettingsLog"
+              style="@style/MainTheme2.Switch"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_vertical"
+              android:layout_marginEnd="@dimen/activity_horizontal_margin"
+              android:background="@null"
+              android:clickable="false"
+              android:focusable="false"
+              xamarin:managedType="Google.Android.Material.SwitchMaterial.SwitchMaterial" />
           </LinearLayout>
         </FrameLayout>
       </LinearLayout>

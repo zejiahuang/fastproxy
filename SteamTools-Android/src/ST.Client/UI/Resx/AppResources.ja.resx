@@ -2617,6 +2617,95 @@ AAAAA-BBBBB-CCCC3</value>
     <value>システム設定</value>
     <comment>Comment=;Author=MicrosoftTranslator</comment>
   </data>
+  <data name="Settings_Proxy" xml:space="preserve">
+    <value>プロキシ設定</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_SpeedTest" xml:space="preserve">
+    <value>マルチIPレイテンシテスト</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_SpeedTest_Desc" xml:space="preserve">
+    <value>候補IPを並列テストし、最速のIPを自動選択</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_Log" xml:space="preserve">
+    <value>プロキシ実行ログ</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_Log_Desc" xml:space="preserve">
+    <value>プロキシ診断ログをローカルファイルに保存</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_SpeedTest_Timeout" xml:space="preserve">
+    <value>測速タイムアウト</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_SpeedTest_TTL" xml:space="preserve">
+    <value>結果キャッシュ</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_SpeedTest_WriteBack" xml:space="preserve">
+    <value>最適IPを書き戻す</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_SpeedTest_WriteBack_Desc" xml:space="preserve">
+    <value>選択した最速IPを保存</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_ProgramStartupRunProxy" xml:space="preserve">
+    <value>起動時に自動起動</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_ProgramStartupRunProxy_Desc" xml:space="preserve">
+    <value>起動時に前回状態を復元</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_HttpToHttps" xml:space="preserve">
+    <value>HTTPをHTTPSへ転送</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_HttpToHttps_Desc" xml:space="preserve">
+    <value>HTTPをHTTPS暗号化接続へ</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Proxy_MasterDns" xml:space="preserve">
+    <value>プロキシ解決DNS</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+
+  <data name="Settings_Appearance" xml:space="preserve">
+    <value>外観設定</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Appearance_DynamicColor" xml:space="preserve">
+    <value>ダイナミックカラー</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Appearance_DynamicColor_Desc" xml:space="preserve">
+    <value>壁紙からテーマカラーを自動生成（Android 12+）</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Appearance_FloatingBar" xml:space="preserve">
+    <value>フローティングボトムバー</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Appearance_FloatingBar_Desc" xml:space="preserve">
+    <value>フローティングカプセル型のボトムナビゲーションバーを使用</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Appearance_Blur" xml:space="preserve">
+    <value>ぼかし効果</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Appearance_Blur_Desc" xml:space="preserve">
+    <value>インターフェースのぼかし効果を有効化</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
+  <data name="Settings_Appearance_ThemeColor" xml:space="preserve">
+    <value>テーマカラー</value>
+    <comment>Comment=;Author=AI</comment>
+  </data>
   <data name="CommunityFix_CertificateExport" xml:space="preserve">
     <value>証明書ファイルをエクスポートします</value>
     <comment>Comment=;Author=MicrosoftTranslator</comment>

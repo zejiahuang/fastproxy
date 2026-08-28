@@ -5375,6 +5375,204 @@ namespace System.Application.UI.Resx {
         }
         
         /// <summary>
+        ///   查找类似 代理设置 的本地化字符串。
+        /// </summary>
+        public static string Settings_Proxy {
+            get {
+                return ResourceManager.GetString("Settings_Proxy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 多 IP 测速选优 的本地化字符串。
+        /// </summary>
+        public static string Settings_Proxy_SpeedTest {
+            get {
+                return ResourceManager.GetString("Settings_Proxy_SpeedTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 对加速节点候选 IP 并行延迟测速 的本地化字符串。
+        /// </summary>
+        public static string Settings_Proxy_SpeedTest_Desc {
+            get {
+                return ResourceManager.GetString("Settings_Proxy_SpeedTest_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 代理运行时日志 的本地化字符串。
+        /// </summary>
+        public static string Settings_Proxy_Log {
+            get {
+                return ResourceManager.GetString("Settings_Proxy_Log", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 将加速链路诊断日志持续写入本地日志文件 的本地化字符串。
+        /// </summary>
+        public static string Settings_Proxy_Log_Desc {
+            get {
+                return ResourceManager.GetString("Settings_Proxy_Log_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 测速超时 的本地化字符串。
+        /// </summary>
+        public static string Settings_Proxy_SpeedTest_Timeout {
+            get {
+                return ResourceManager.GetString("Settings_Proxy_SpeedTest_Timeout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 测速结果缓存 的本地化字符串。
+        /// </summary>
+        public static string Settings_Proxy_SpeedTest_TTL {
+            get {
+                return ResourceManager.GetString("Settings_Proxy_SpeedTest_TTL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 测速后写回最优 IP 的本地化字符串。
+        /// </summary>
+        public static string Settings_Proxy_SpeedTest_WriteBack {
+            get {
+                return ResourceManager.GetString("Settings_Proxy_SpeedTest_WriteBack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 将本次选出的最快 IP 写入加速条目配置 的本地化字符串。
+        /// </summary>
+        public static string Settings_Proxy_SpeedTest_WriteBack_Desc {
+            get {
+                return ResourceManager.GetString("Settings_Proxy_SpeedTest_WriteBack_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 启动时自动开启代理 的本地化字符串。
+        /// </summary>
+        public static string Settings_Proxy_ProgramStartupRunProxy {
+            get {
+                return ResourceManager.GetString("Settings_Proxy_ProgramStartupRunProxy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 应用启动后自动恢复上次的代理状态 的本地化字符串。
+        /// </summary>
+        public static string Settings_Proxy_ProgramStartupRunProxy_Desc {
+            get {
+                return ResourceManager.GetString("Settings_Proxy_ProgramStartupRunProxy_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 HTTP 转发到 HTTPS 的本地化字符串。
+        /// </summary>
+        public static string Settings_Proxy_HttpToHttps {
+            get {
+                return ResourceManager.GetString("Settings_Proxy_HttpToHttps", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 将 HTTP 请求自动升级为 HTTPS 加密连接 的本地化字符串。
+        /// </summary>
+        public static string Settings_Proxy_HttpToHttps_Desc {
+            get {
+                return ResourceManager.GetString("Settings_Proxy_HttpToHttps_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 代理解析主 DNS 的本地化字符串。
+        /// </summary>
+        public static string Settings_Proxy_MasterDns {
+            get {
+                return ResourceManager.GetString("Settings_Proxy_MasterDns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 外观设置 的本地化字符串。
+        /// </summary>
+        public static string Settings_Appearance {
+            get {
+                return ResourceManager.GetString("Settings_Appearance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 动态取色 的本地化字符串。
+        /// </summary>
+        public static string Settings_Appearance_DynamicColor {
+            get {
+                return ResourceManager.GetString("Settings_Appearance_DynamicColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 根据壁纸自动生成主题色（Android 12+） 的本地化字符串。
+        /// </summary>
+        public static string Settings_Appearance_DynamicColor_Desc {
+            get {
+                return ResourceManager.GetString("Settings_Appearance_DynamicColor_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 悬浮底栏 的本地化字符串。
+        /// </summary>
+        public static string Settings_Appearance_FloatingBar {
+            get {
+                return ResourceManager.GetString("Settings_Appearance_FloatingBar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 使用悬浮胶囊样式的底部导航栏 的本地化字符串。
+        /// </summary>
+        public static string Settings_Appearance_FloatingBar_Desc {
+            get {
+                return ResourceManager.GetString("Settings_Appearance_FloatingBar_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 模糊效果 的本地化字符串。
+        /// </summary>
+        public static string Settings_Appearance_Blur {
+            get {
+                return ResourceManager.GetString("Settings_Appearance_Blur", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 为界面启用模糊效果 的本地化字符串。
+        /// </summary>
+        public static string Settings_Appearance_Blur_Desc {
+            get {
+                return ResourceManager.GetString("Settings_Appearance_Blur_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 主题色 的本地化字符串。
+        /// </summary>
+        public static string Settings_Appearance_ThemeColor {
+            get {
+                return ResourceManager.GetString("Settings_Appearance_ThemeColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 主题 的本地化字符串。
         /// </summary>
         public static string Settings_Theme {

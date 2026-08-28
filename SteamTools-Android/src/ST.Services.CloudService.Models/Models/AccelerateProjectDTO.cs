@@ -106,6 +106,22 @@ namespace System.Application.Models
         }
 
         /// <summary>
+        /// 全部候选转发 IP（第三方数据源提供，测速选优使用，仅客户端内存使用，不参与序列化）
+        /// </summary>
+        [MPIgnore]
+        [N_JsonIgnore]
+        [S_JsonIgnore]
+        public List<string>? ForwardIPs { get; set; }
+
+        /// <summary>
+        /// 加速条目图标 URL（第三方数据源提供，客户端内存使用）
+        /// </summary>
+        [MPIgnore]
+        [N_JsonIgnore]
+        [S_JsonIgnore]
+        public string? IconUrl { get; set; }
+
+        /// <summary>
         /// 转发是域名(<see langword="true"/>)还是域名IP(<see langword="false"/>)
         /// </summary>
         [MPIgnore]

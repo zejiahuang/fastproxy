@@ -27,6 +27,34 @@ public sealed partial class UISettings : SettingsHost2<UISettings>
     /// </summary>
     public static SerializableProperty<bool> IsShowAdvertise { get; }
         = GetProperty(defaultValue: true);
+
+    #region InstallerX 外观设置项
+
+    /// <summary>
+    /// 启用动态取色（Android 12+ 壁纸取色，Material You）
+    /// </summary>
+    public static SerializableProperty<bool> UseDynamicColor { get; }
+        = GetProperty(defaultValue: false);
+
+    /// <summary>
+    /// 主题色种子（18 色预设索引，ARGB 色值），用于基于种子色的动态主题
+    /// </summary>
+    public static SerializableProperty<int> ThemeColor { get; }
+        = GetProperty(defaultValue: unchecked((int)0xFF6750A4));
+
+    /// <summary>
+    /// 启用悬浮胶囊底栏
+    /// </summary>
+    public static SerializableProperty<bool> UseFloatingBar { get; }
+        = GetProperty(defaultValue: true);
+
+    /// <summary>
+    /// 启用模糊效果
+    /// </summary>
+    public static SerializableProperty<bool> UseBlur { get; }
+        = GetProperty(defaultValue: false);
+
+    #endregion
 }
 
 //static void EnableDesktopBackground_ValueChanged(object? sender, ValueChangedEventArgs<bool> e)

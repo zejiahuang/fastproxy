@@ -37,8 +37,37 @@ namespace System.Application.UI.Activities
                 if (!this.IsAuthenticated()) return;
             }
             //if (!DeviceSecurityCheckUtil.IsAllowStart(this)) return;
+            ApplyThemeColor();
             SetContentView(this, LayoutResource);
             OnCreate2(savedInstanceState);
+        }
+
+        /// <summary>
+        /// 应用动态取色 / 主题色种子（Android 12+，Material You）
+        /// </summary>
+        void ApplyThemeColor()
+        {
+            try
+            {
+                var useDynamic = Settings.UISettings.UseDynamicColor.Value;
+                var seed = Settings.UISettings.ThemeColor.Value;
+                if (useDynamic)
+                {
+                    // 壁纸动态取色（无种子色）
+                    Google.Android.Material.Color.DynamicColors.ApplyToActivityIfAvailable(this);
+                }
+                else if (seed != 0xFF6750A4)
+                {
+                    // 基于种子色的动态主题
+                    var options = new Google.Android.Material.Color.DynamicColorsOptions.Builder()
+                        .SetContentBasedSource(seed)
+                        .Build();
+                    Google.Android.Material.Color.DynamicColors.ApplyToActivityIfAvailable(this, options);
+                }
+            }
+            catch
+            {
+            }
         }
 
         protected virtual void OnCreate2(Bundle? savedInstanceState)

@@ -2037,6 +2037,72 @@ AAAAA-BBBBB-CCCC3</value>
   <data name="Settings_System" xml:space="preserve">
     <value>系统设置</value>
   </data>
+  <data name="Settings_Proxy" xml:space="preserve">
+    <value>代理设置</value>
+  </data>
+  <data name="Settings_Proxy_SpeedTest" xml:space="preserve">
+    <value>多 IP 测速选优</value>
+  </data>
+  <data name="Settings_Proxy_SpeedTest_Desc" xml:space="preserve">
+    <value>对加速节点候选 IP 并行延迟测速，自动选择最快 IP</value>
+  </data>
+  <data name="Settings_Proxy_Log" xml:space="preserve">
+    <value>代理运行时日志</value>
+  </data>
+  <data name="Settings_Proxy_Log_Desc" xml:space="preserve">
+    <value>将加速链路诊断日志持续写入本地日志文件</value>
+  </data>
+  <data name="Settings_Proxy_SpeedTest_Timeout" xml:space="preserve">
+    <value>测速超时</value>
+  </data>
+  <data name="Settings_Proxy_SpeedTest_TTL" xml:space="preserve">
+    <value>测速结果缓存</value>
+  </data>
+  <data name="Settings_Proxy_SpeedTest_WriteBack" xml:space="preserve">
+    <value>测速后写回最优 IP</value>
+  </data>
+  <data name="Settings_Proxy_SpeedTest_WriteBack_Desc" xml:space="preserve">
+    <value>将本次选出的最快 IP 写入加速条目配置</value>
+  </data>
+  <data name="Settings_Proxy_ProgramStartupRunProxy" xml:space="preserve">
+    <value>启动时自动开启代理</value>
+  </data>
+  <data name="Settings_Proxy_ProgramStartupRunProxy_Desc" xml:space="preserve">
+    <value>应用启动后自动恢复上次的代理状态</value>
+  </data>
+  <data name="Settings_Proxy_HttpToHttps" xml:space="preserve">
+    <value>HTTP 转发到 HTTPS</value>
+  </data>
+  <data name="Settings_Proxy_HttpToHttps_Desc" xml:space="preserve">
+    <value>将 HTTP 请求自动升级为 HTTPS 加密连接</value>
+  </data>
+  <data name="Settings_Proxy_MasterDns" xml:space="preserve">
+    <value>代理解析主 DNS</value>
+  </data>
+  <data name="Settings_Appearance" xml:space="preserve">
+    <value>外观设置</value>
+  </data>
+  <data name="Settings_Appearance_DynamicColor" xml:space="preserve">
+    <value>动态取色</value>
+  </data>
+  <data name="Settings_Appearance_DynamicColor_Desc" xml:space="preserve">
+    <value>根据壁纸自动生成主题色（Android 12+）</value>
+  </data>
+  <data name="Settings_Appearance_FloatingBar" xml:space="preserve">
+    <value>悬浮底栏</value>
+  </data>
+  <data name="Settings_Appearance_FloatingBar_Desc" xml:space="preserve">
+    <value>使用悬浮胶囊样式的底部导航栏</value>
+  </data>
+  <data name="Settings_Appearance_Blur" xml:space="preserve">
+    <value>模糊效果</value>
+  </data>
+  <data name="Settings_Appearance_Blur_Desc" xml:space="preserve">
+    <value>为界面启用模糊效果</value>
+  </data>
+  <data name="Settings_Appearance_ThemeColor" xml:space="preserve">
+    <value>主题色</value>
+  </data>
   <data name="CommunityFix_CertificateExport" xml:space="preserve">
     <value>导出证书文件</value>
   </data>

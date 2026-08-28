@@ -408,6 +408,9 @@
     <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\drawable\baseline_notifications_black_24.xml">
       <Link>Resources\drawable\baseline_notifications_black_24.xml</Link>
     </AndroidResource>
+    <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\drawable\nav_bar_pill.xml">
+      <Link>Resources\drawable\nav_bar_pill.xml</Link>
+    </AndroidResource>
     <AndroidResource Include="..\ST.Client.Mobile.Droid.Design\ui\src\main\res\drawable\baseline_person_black_24.xml">
       <Link>Resources\drawable\baseline_person_black_24.xml</Link>
     </AndroidResource>

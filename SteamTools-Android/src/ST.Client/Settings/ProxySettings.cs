@@ -72,6 +72,33 @@ public sealed partial class ProxySettings : SettingsHost2<ProxySettings>
         = GetProperty(defaultValue: true);
     #endregion
 
+    #region 多 IP 测速设置
+
+    /// <summary>
+    /// 启用多 IP 延迟测速选优
+    /// </summary>
+    public static SerializableProperty<bool> SpeedTestEnable { get; }
+        = GetProperty(defaultValue: true);
+
+    /// <summary>
+    /// 单 IP 测速超时时间(毫秒)
+    /// </summary>
+    public static SerializableProperty<int> SpeedTestTimeoutMs { get; }
+        = GetProperty(defaultValue: 3000);
+
+    /// <summary>
+    /// 测速结果缓存有效期(秒)
+    /// </summary>
+    public static SerializableProperty<int> SpeedTestCacheTTLSeconds { get; }
+        = GetProperty(defaultValue: 600);
+
+    /// <summary>
+    /// 测速选优后是否将最优 IP 写回 ForwardDomainIP
+    /// </summary>
+    public static SerializableProperty<bool> SpeedTestWriteBack { get; }
+        = GetProperty(defaultValue: true);
+    #endregion
+
     #region 本地代理设置
 
     /// <summary>

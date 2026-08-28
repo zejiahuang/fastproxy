@@ -81,6 +81,16 @@ namespace System.Application.UI.Activities
             binding.viewPager2.Adapter = adapter;
             binding.viewPager2.RegisterOnPageChangeCallback(new OnPageChangeCallback(this));
             binding.nav_view.SetOnItemSelectedListener(this);
+
+            // 悬浮底栏开关
+            UpdateFloatingBar();
+            Settings.UISettings.UseFloatingBar.Subscribe(_ => UpdateFloatingBar()).AddTo(this);
+        }
+
+        void UpdateFloatingBar()
+        {
+            if (binding == null) return;
+            binding.nav_view.Visibility = Settings.UISettings.UseFloatingBar.Value ? ViewStates.Visible : ViewStates.Gone;
         }
 
         sealed class OnPageChangeCallback : ViewPager2.OnPageChangeCallback
