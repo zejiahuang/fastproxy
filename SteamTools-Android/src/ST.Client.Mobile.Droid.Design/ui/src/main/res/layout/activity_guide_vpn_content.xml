@@ -5,7 +5,7 @@
   xmlns:xamarin="http://schemas.xamarin.com/android/xamarin/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:background="@color/grey_window_background">
+  android:background="?attr/colorSurface">
 
   <androidx.constraintlayout.widget.Guideline
     android:id="@+id/guideline_left"
@@ -89,7 +89,7 @@
     android:gravity="center_horizontal"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:text="@string/guide_vpn_title"
-    android:textColor="@color/text_primary"
+    android:textColor="?attr/colorOnSurface"
     android:textSize="24sp"
     android:textStyle="bold"
     app:layout_constraintBottom_toTopOf="@+id/tvDesc"
@@ -105,7 +105,7 @@
     android:gravity="center_horizontal"
     android:lineSpacingExtra="4sp"
     android:text="@string/guide_vpn_desc"
-    android:textColor="@color/text_primary"
+    android:textColor="?attr/colorOnSurface"
     android:textSize="16sp"
     app:layout_constraintBottom_toTopOf="@+id/btnDone"
     app:layout_constraintEnd_toStartOf="@+id/guideline_right"

@@ -39,7 +39,7 @@
             android:layout_marginStart="@dimen/activity_horizontal_margin"
             android:ellipsize="end"
             android:maxLines="2"
-            android:textColor="@color/text_primary"
+            android:textColor="?attr/colorOnSurface"
             android:textSize="@dimen/settings_ui_item_title_font_size"
             tools:text="代理监听 IP 地址"
             xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />
@@ -320,7 +320,7 @@ style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense.ExposedDropdown
             android:layout_marginStart="@dimen/activity_horizontal_margin"
             android:ellipsize="end"
             android:maxLines="2"
-            android:textColor="@color/text_primary"
+            android:textColor="?attr/colorOnSurface"
             android:textSize="@dimen/settings_ui_item_title_font_size"
             tools:text="监听端口"
             xamarin:managedType="AndroidX.AppCompat.Widget.AppCompatTextView" />

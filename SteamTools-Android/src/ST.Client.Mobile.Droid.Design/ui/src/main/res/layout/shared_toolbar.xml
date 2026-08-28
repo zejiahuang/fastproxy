@@ -14,7 +14,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?attr/colorSurface"
-    app:navigationIconTint="@color/shell_title_color"
+    app:navigationIconTint="?attr/colorOnSurface"
     app:theme="@style/MainTheme2.Toolbar"
     tools:title="MaterialToolbar.Title"
     xamarin:managedType="Google.Android.Material.AppBar.MaterialToolbar" />

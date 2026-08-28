@@ -22,7 +22,7 @@
       android:id="@+id/divider"
       android:layout_width="match_parent"
       android:layout_height="1px"
-      android:background="@color/bg_divider" />
+      android:background="?attr/colorOutlineVariant" />
 
     <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/rvAccelerateProject"

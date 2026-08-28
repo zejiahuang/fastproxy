@@ -19,7 +19,7 @@
         android:elevation="12dp"
         app:labelVisibilityMode="labeled"
         app:itemActiveIndicatorStyle="@style/MainTheme2.NavigationBar.ActiveIndicator"
-        app:itemRippleColor="@color/md3_primary_container"
+        app:itemRippleColor="?attr/colorPrimaryContainer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
